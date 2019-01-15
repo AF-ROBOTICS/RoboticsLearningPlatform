@@ -1,3 +1,5 @@
 .DS_Store
 
-.RasPi_info
+
+# ignore Raspberry Pi folder
+RaspberryPi/
