@@ -9,7 +9,7 @@ const int adir    = 4;  // direction a
 const int pwma  = 6;  // HW
 const int bdir    = 9;  // direction b
 const int pwmb  = 10; // HW
-const int speed = 100;
+const int speed = 200;
 const int turnDelay = 1000;
 const int pause = 275;
 const byte irL = A0;
@@ -37,26 +37,26 @@ void setup(){
   robot.init(pwma, adir, pwmb, bdir, turnDelay, pause);
 	Serial.begin(115200);
   //Starting up radio
-  radio.begin();
-  radio.setChannel(115);
-  radio.openReadingPipe(1, address);
-  radio.setPALevel(RF24_PA_MAX);
-  radio.setDataRate(RF24_250KBPS);
-  radio.startListening();
-  Serial.print("Radio booting...\n");
-  delay(1000);
+//  radio.begin();
+//  radio.setChannel(115);
+//  radio.openReadingPipe(1, address);
+//  radio.setPALevel(RF24_PA_MAX);
+//  radio.setDataRate(RF24_250KBPS);
+//  radio.startListening();
+//  Serial.print("Radio booting...\n");
+//  delay(1000);
 }
 
 void loop(){
   randomSeed(millis());
-  if (radio.available()){
-    while (radio.available()){
-      radio.read(&newPacket, sizeof(infoPacket));
-    }
-  }
-  int xVal = newPacket.X - 138;
-  int yVal = newPacket.Y -130;
-  int zVal = newPacket.Z;
+//  if (radio.available()){
+//    while (radio.available()){
+//      radio.read(&newPacket, sizeof(infoPacket));
+//    }
+//  }
+//  int xVal = newPacket.X - 138;
+//  int yVal = newPacket.Y -130;
+//  int zVal = newPacket.Z;
   
   float outputLeft = analogRead(irL);
   float outputCenter = analogRead(irC);
@@ -101,26 +101,28 @@ void loop(){
   }
   // all is good, continue
   else {
-    if(yVal > 75 && -25 < xVal < 25) {
-      robot.forward(speed);
-    }
-    else if(yVal > 50 && -25 < xVal < 25){
-      robot.forward(.5*speed);
-    }
-    else if (yVal < -75 && -25 < xVal < 25){
-      robot.reverse(speed);
-    }
-    else if (yVal < -50 && -25 < xVal < 25){
-      robot.reverse(.5*speed);
-    }
-    else if (xVal < -50 && -25 < yVal < 25){
-      robot.ncTurnLeft(speed);
-    }
-    else if (xVal > 50 && -25 < yVal <25){
-      robot.ncTurnRight(speed);
-    }
-    else{
-      robot.allStop();
-    }
+    Serial.print("forward");
+    robot.forward(speed);
+//    if(yVal > 75 && -25 < xVal < 25) {
+//      robot.forward(speed);
+//    }
+//    else if(yVal > 50 && -25 < xVal < 25){
+//      robot.forward(.5*speed);
+//    }
+//    else if (yVal < -75 && -25 < xVal < 25){
+//      robot.reverse(speed);
+//    }
+//    else if (yVal < -50 && -25 < xVal < 25){
+//      robot.reverse(.5*speed);
+//    }
+//    else if (xVal < -50 && -25 < yVal < 25){
+//      robot.ncTurnLeft(speed);
+//    }
+//    else if (xVal > 50 && -25 < yVal <25){
+//      robot.ncTurnRight(speed);
+//    }
+//    else{
+//      robot.allStop();
+//    }
   }
 }
