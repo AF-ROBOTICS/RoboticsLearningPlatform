@@ -24,12 +24,12 @@ void setup(){
 }
 
 void loop(){
-  robot.forward(speed);
-  delay(5);
+  robot.forward(speed/2);
+  delay(1000);
   robot.turnLeft(speed);
-  delay(5);
+  delay(1000);
   robot.turnRight(speed);
-  delay(5);
-  robot.reverse(speed);
-  delay(5);
+  delay(1000);
+  robot.reverse(speed/2);
+  delay(1000);
 }

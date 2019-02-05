@@ -44,6 +44,9 @@ void loop() {
   newPacket.X = nunchuck.joyX;
   newPacket.Y = nunchuck.joyY;
   newPacket.Z = nunchuck.buttonZ;
+  Serial.print("yVal: "); Serial.println(newPacket.Y);
+  Serial.print("xVal: "); Serial.println(newPacket.X);
+  Serial.print("zVal: "); Serial.println(newPacket.Z);
   //Still gonna send it
   radio.write(&newPacket, sizeof(newPacket));
   delay(100);
