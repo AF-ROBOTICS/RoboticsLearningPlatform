@@ -13,7 +13,7 @@ const int pwmb  = 3; // HW
 const int speed = 200;
 const int turnDelay = 1000;
 const int pause = 275;
-int angle = 0;
+int angle = 90;
 
 //Radio object:
 RF24 radio(7, 8); //CE, CSN
@@ -27,6 +27,7 @@ typedef struct {
   int X = 0;
   int Y = 0;
   bool Z = false;
+  bool C = false;
 } infoPacket;
 
 infoPacket newPacket;
@@ -38,7 +39,7 @@ void setup(){
  
   robot.init(pwma, adir, pwmb, bdir, turnDelay, pause);
   servo.attach(5);
-  servo.write(0);
+  servo.write(90);
   // Starting up radio
   radio.begin();
   radio.setChannel(115);
@@ -59,9 +60,11 @@ void loop(){
   int xVal = newPacket.X - 138;
   int yVal = newPacket.Y -130;
   int zVal = newPacket.Z;
+  int cVal = newPacket.C;
   Serial.print("yVal: "); Serial.println(yVal);
   Serial.print("xVal: "); Serial.println(xVal);
   Serial.print("zVal: "); Serial.println(zVal);
+  Serial.print("cVal: "); Serial.println(cVal);
 
   if(zVal == 0){
   if(yVal > 75 && -25 < xVal < 25) {
@@ -96,6 +99,9 @@ void loop(){
       angle -= 1;
       Serial.println("Decrease servo.");
     }
+  }
+  if(cVal == 1){
+    angle = 90;
   }
   servo.write(angle);
 }

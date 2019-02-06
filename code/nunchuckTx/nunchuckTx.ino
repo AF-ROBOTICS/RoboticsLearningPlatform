@@ -8,6 +8,7 @@ typedef struct {
   int X = 0;
   int Y = 0;
   bool Z = false;
+  bool C = false;
 } infoPacket;
 
 //Initializing packet
@@ -44,9 +45,11 @@ void loop() {
   newPacket.X = nunchuck.joyX;
   newPacket.Y = nunchuck.joyY;
   newPacket.Z = nunchuck.buttonZ;
+  newPacket.C = nunchuck.buttonC;
   Serial.print("yVal: "); Serial.println(newPacket.Y);
   Serial.print("xVal: "); Serial.println(newPacket.X);
   Serial.print("zVal: "); Serial.println(newPacket.Z);
+  Serial.print("cVal: "); Serial.println(newPacket.C);
   //Still gonna send it
   radio.write(&newPacket, sizeof(newPacket));
   delay(100);

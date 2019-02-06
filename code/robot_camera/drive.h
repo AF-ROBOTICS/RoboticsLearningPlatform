@@ -101,7 +101,7 @@ void allStop(){
  }
 
  void forward(int spd){
-    motorAB.motorRForward(spd);
+    motorAB.motorRForward(spd*1.025);
     motorAB.motorLForward(spd);
  }
  
