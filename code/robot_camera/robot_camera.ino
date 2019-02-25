@@ -13,6 +13,7 @@ const int pwmb  = 3; // HW
 const int speed = 200;
 const int turnDelay = 1000;
 const int pause = 275;
+const int servoPin = 5;
 int angle = 90;
 
 //Radio object:
@@ -38,8 +39,8 @@ void setup(){
 	Serial.begin(115200);
  
   robot.init(pwma, adir, pwmb, bdir, turnDelay, pause);
-  servo.attach(5);
-  servo.write(90);
+  servo.attach(servoPin);
+  servo.write(angle);
   // Starting up radio
   radio.begin();
   radio.setChannel(115);
