@@ -8,7 +8,7 @@
 const int adir    = 4;  // direction a
 const int pwma  = 6;  // HW
 const int bdir    = 9;  // direction b
-const int pwmb  = 10; // HW
+const int pwmb  = 3; // HW
 const int speed = 200;
 const int turnDelay = 1000;
 const int pause = 275;

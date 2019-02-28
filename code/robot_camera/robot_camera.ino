@@ -43,7 +43,8 @@ void setup(){
   servo.write(angle);
   // Starting up radio
   radio.begin();
-  radio.setChannel(115);
+  // Channels 0-127
+  radio.setChannel(0);
   radio.openReadingPipe(1, address);
   radio.setPALevel(RF24_PA_MAX);
   radio.setDataRate(RF24_250KBPS);

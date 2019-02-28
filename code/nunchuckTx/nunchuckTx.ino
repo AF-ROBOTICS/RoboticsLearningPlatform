@@ -31,7 +31,8 @@ void setup() {
 
   //Starting up radio
   radio.begin();
-  radio.setChannel(115);
+  // channels 0 - 127
+  radio.setChannel(0);
   radio.setPALevel(RF24_PA_MAX);
   radio.setDataRate(RF24_250KBPS);
   radio.openWritingPipe(address);
