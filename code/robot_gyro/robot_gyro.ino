@@ -9,6 +9,8 @@
 #include <Adafruit_FXAS21002C.h>
 #include <Adafruit_FXOS8700.h>
 
+// https://learn.adafruit.com/nxp-precision-9dof-breakout/arduino-code
+
 Adafruit_FXAS21002C gyro = Adafruit_FXAS21002C(0x0021002C);
 Adafruit_FXOS8700 accelmag = Adafruit_FXOS8700(0x8700A, 0x8700B);
 
