@@ -10,7 +10,7 @@ int turnPause;
 int motorPause;
 const int pause = 275;
 
-Motor motorAB;
+MotorDriver motorAB;
 
 class Robot {
 public:

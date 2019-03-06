@@ -21,7 +21,7 @@ void setup(){
 	Serial.begin(96000);
 }
 
-// basic code to go forward for a second and then turnRight
+// basic code to go forward for a second and then turn right
 void loop(){
   robot.forward(speed);
   delay(1000);
