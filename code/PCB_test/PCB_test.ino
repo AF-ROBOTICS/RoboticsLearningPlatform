@@ -1,12 +1,23 @@
-#include <Wire.h>
+/* 
+ *  Filename: PCB_test.ino
+ *  Author: Capt Steven Beyer
+ *  Created: 6 Mar 2019
+ *  Description: Arduino Sketch that tests the operation of the PCB board.
+ *    If the board is working correctly both motors will drive forward for
+ *    one second and then the right motor will go backwards while the left
+ *    motor will go forwards (right turn). Both motors will stop and pause
+ *    for one second.
+ *  
+ *  Required Files:
+ *    Libraries : none
+ *    Packages  : none
+ *    Files     : TB6612FNG.h, drive.h
+ */
+
 #include "TB6612FNG.h"
 #include "drive.h"
 
-// pins to connect motor to.
-const int adir    = 4;  // direction a
-const int pwma  = 6;  // HW
-const int bdir    = 9;  // direction b
-const int pwmb  = 3; // HW
+
 // sets the speed of the robot
 const int speed = 200;
 // adjust turn delay to get closer to 90 deg turn
@@ -17,8 +28,8 @@ Robot robot;
 
 void setup(){
   // initialize robot instance setting pins and turn delay
-  robot.init(pwma, adir, pwmb, bdir, turnDelay);
-	Serial.begin(96000);
+  robot.init();
+  Serial.begin(96000);
 }
 
 // basic code to go forward for a second and then turn right
@@ -26,5 +37,7 @@ void loop(){
   robot.forward(speed);
   delay(1000);
   robot.turnRight(speed);
+  delay(turnDelay);
+  robot.allStop();
   delay(1000);
 }

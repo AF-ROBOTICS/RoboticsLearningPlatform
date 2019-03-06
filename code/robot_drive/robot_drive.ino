@@ -23,6 +23,6 @@ void loop(){
   delay(1000);
   robot.turnRight(speed);
   delay(turnDelay);
-  robot.allStop()
+  robot.allStop();
   delay(1000);
 }
