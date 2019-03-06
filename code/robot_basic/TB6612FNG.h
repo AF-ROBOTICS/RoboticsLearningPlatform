@@ -1,13 +1,31 @@
-
+/* 
+ *  Filename: TB6612FNG.h
+ *  Author: Capt Steven Beyer
+ *  Created: 6 Mar 2019
+ *  Description: Header file that handles all of the GPIO to motor communication
+ *    for the DFECBot. It provides functions to control each motor.
+ *  
+ *  Required Files:
+ *    Libraries : none
+ *    Packages  : none
+ *    Files     : none
+ */
 
 #ifndef __TB6612FNG_H__
 #define __TB6612FNG_H__
 
-// #include <Arduino.h>
-#include <stdint.h>
-
 /**
  * ATmega328P, pwm works on pins 3, 5, 6, 9, 10, and 11 at 490/980Hz
+ */
+// pins to connect from Arduino to PCB board to control motor
+const int Rdir  = 4;  // direction a
+const int pwmR  = 6;  // HW
+const int Ldir  = 9;  // direction b
+const int pwmL  = 3; // HW
+
+/*
+ * The MotorDriver class provides functions to control
+ * each of the motors on the DFECBot.
  */
 class MotorDriver {
 public:
@@ -15,18 +33,19 @@ public:
   MotorDriver(void){
     ;
   }
-  
-  void init(int pwmA, int adir, int pwmB, int bdir, int reset=-1){
-    pwmA_pin = pwmA;
-    pwmB_pin = pwmB;
-    Adir_pin = adir;
-    Bdir_pin = bdir;
+
+  // initialize pin numbers and modes
+  void init(int reset=-1){
+    pwmR_pin = pwmR;
+    pwmL_pin = pwmL;
+    Rdir_pin = Rdir;
+    Ldir_pin = Ldir;
     reset_pin = reset;
 
-    pinMode(pwmA_pin, OUTPUT);
-    pinMode(pwmB_pin, OUTPUT);
-    pinMode(Adir_pin, OUTPUT);
-    pinMode(Bdir_pin, OUTPUT);
+    pinMode(pwmR_pin, OUTPUT);
+    pinMode(pwmL_pin, OUTPUT);
+    pinMode(Rdir_pin, OUTPUT);
+    pinMode(Ldir_pin, OUTPUT);
 
     if(reset_pin){
       pinMode(reset_pin, OUTPUT);
@@ -34,6 +53,7 @@ public:
     }
   }
 
+  // reset the motor driver
   void begin(){
     if(reset_pin){
       digitalWrite(reset_pin, LOW);
@@ -42,72 +62,48 @@ public:
     }
   }
 
+  // Move the right motor forward at given speed
   void motorRForward(uint8_t speed){
-    digitalWrite(Adir_pin,HIGH);
-    analogWrite(pwmA_pin, speed);
+    digitalWrite(Rdir_pin,HIGH);
+    analogWrite(pwmR_pin, speed);
   }
 
+  // Move the left motor forward at given speed
   void motorLForward(uint8_t speed){
-    digitalWrite(Bdir_pin,HIGH);
-    analogWrite(pwmB_pin, speed);
+    digitalWrite(Ldir_pin,HIGH);
+    analogWrite(pwmL_pin, speed);
   }
 
+  // Move the right motor backward at given speed
   void motorRReverse(uint8_t speed){
-    digitalWrite(Adir_pin,LOW);
-    analogWrite(pwmA_pin, speed);
+    digitalWrite(Rdir_pin,LOW);
+    analogWrite(pwmR_pin, speed);
   }
 
+  // Move the left motor forward at given speed
   void motorLReverse(uint8_t speed){
-    digitalWrite(Bdir_pin,LOW);
-    analogWrite(pwmB_pin, speed);
+    digitalWrite(Ldir_pin,LOW);
+    analogWrite(pwmL_pin, speed);
   }
 
-  /**
-   * Stop is defined as PWM set to zero.
-   */
+  // Stop both motors
   void stopBothMotors(){
     stopMotorR();
     stopMotorL();
   }
 
+  // Stop right motor
   void stopMotorR(){
-//    digitalWrite(A0_pin,HIGH);
-//    digitalWrite(A1_pin,HIGH);
-    analogWrite(pwmA_pin, 0);
+    analogWrite(pwmR_pin, 0);
   }
 
+  // Stop left motor
   void stopMotorL(){
-//    digitalWrite(B0_pin,HIGH);
-//    digitalWrite(B1_pin,HIGH);
-    analogWrite(pwmB_pin, 0);
+    analogWrite(pwmL_pin, 0);
   }
-
-
-
-//  /**
-//   * Coast is defined as a high impedance state. No current runs through motors
-//   * and they just spin.
-//   */
-//  void coastBothMotors(){
-//    motor0Coast();
-//    motor1Coast();
-//  }
-//
-//  void motor0Coast(){
-//    digitalWrite(A0_pin,LOW);
-//    digitalWrite(A1_pin,LOW);
-//    analogWrite(pwmA_pin, 255);
-//  }
-//
-//  void motor1Coast(){
-//    digitalWrite(B0_pin,LOW);
-//    digitalWrite(B1_pin,LOW);
-//    analogWrite(pwmB_pin, 255);
-//  }
 
 protected:
-
-  int pwmA_pin, pwmB_pin, Adir_pin, Bdir_pin, reset_pin;
+  int pwmR_pin, pwmL_pin, Rdir_pin, Ldir_pin, reset_pin;
 };
 
 #endif

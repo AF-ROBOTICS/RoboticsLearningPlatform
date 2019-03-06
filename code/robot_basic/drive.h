@@ -1,30 +1,51 @@
+/* 
+ *  Filename: drive.h
+ *  Author: Capt Steven Beyer
+ *  Created: 6 Mar 2019
+ *  Description: Header file that provides functions to drive the DFECBot.
+ *  
+ *  Required Files:
+ *    Libraries : none
+ *    Packages  : none
+ *    Files     : TB6612FNG.h
+ */
 #ifndef __ROBOT_H__
 #define __ROBOT_H__
 
-#include <Wire.h>
 #include "TB6612FNG.h"
 
-static int turnPause;
-static int motorPause;
+// pauses the motor between different commands to help with precision
+const int motorPause = 275;
 
+// controls how long the robot turns and is set during init
+static int turnPause;
+
+// create an instance of the MotorDrive class called motorAB
+MotorDriver motorAB;
+
+/*
+ * The Robot class provides functions to drive the DFECBot.
+ */
 class Robot {
 public:
 Robot(){
     ;
 }
 
-void init(int pwmA, int adir, int pwmB, int bdir, int turnP, int motorP){
-   motorAB.init(pwmA, adir, pwmB, bdir);
+// initializes robot and sets up motor pins
+void init(int turnP){
+   motorAB.init();
    motorAB.begin();
    turnPause = turnP;
-   motorPause = motorP;
    motorAB.stopBothMotors();
 }
 
+// stop all motors
 void allStop(){
     motorAB.stopBothMotors();
 }
 
+ // turn the DFECBot left 90 deg
  void turnLeft(int spd){
     motorAB.stopBothMotors();
     delay(motorPause);
@@ -34,12 +55,14 @@ void allStop(){
     motorAB.stopBothMotors();
     delay(motorPause);
  }
+
+ // turn the DFECBot left until next command
  void ncTurnLeft(int spd){
     motorAB.motorRForward(spd*.5);
     motorAB.motorLReverse(spd*.5);
  }
 
-  void halfLeft(int spd){
+ void halfLeft(int spd){
     motorAB.stopBothMotors();
     delay(motorPause);
     motorAB.motorRForward(spd*.5);

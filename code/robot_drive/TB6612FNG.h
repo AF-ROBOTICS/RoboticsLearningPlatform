@@ -1,26 +1,31 @@
 /* 
- *  
  *  Filename: TB6612FNG.h
  *  Author: Capt Steven Beyer
  *  Created: 6 Mar 2019
  *  Description: Header file that handles all of the GPIO to motor communication
+ *    for the DFECBot. It provides functions to control each motor.
  *  
+ *  Required Files:
+ *    Libraries : none
+ *    Packages  : none
+ *    Files     : none
  */
-
 
 #ifndef __TB6612FNG_H__
 #define __TB6612FNG_H__
 
-//#include <stdint.h>
-
-// pins to connect motor to.
-const int Rdir    = 4;  // direction a
-const int pwmR  = 6;  // HW
-const int Ldir    = 9;  // direction b
-const int pwmL  = 3; // HW
-
 /**
  * ATmega328P, pwm works on pins 3, 5, 6, 9, 10, and 11 at 490/980Hz
+ */
+// pins to connect from Arduino to PCB board to control motor
+const int Rdir  = 4;  // direction a
+const int pwmR  = 6;  // HW
+const int Ldir  = 9;  // direction b
+const int pwmL  = 3; // HW
+
+/*
+ * The MotorDriver class provides functions to control
+ * each of the motors on the DFECBot.
  */
 class MotorDriver {
 public:
@@ -57,25 +62,25 @@ public:
     }
   }
 
-  // Move the right motor forward
+  // Move the right motor forward at given speed
   void motorRForward(uint8_t speed){
     digitalWrite(Rdir_pin,HIGH);
     analogWrite(pwmR_pin, speed);
   }
 
-  // Move the left motor forward
+  // Move the left motor forward at given speed
   void motorLForward(uint8_t speed){
     digitalWrite(Ldir_pin,HIGH);
     analogWrite(pwmL_pin, speed);
   }
 
-  // Move the right motor backward
+  // Move the right motor backward at given speed
   void motorRReverse(uint8_t speed){
     digitalWrite(Rdir_pin,LOW);
     analogWrite(pwmR_pin, speed);
   }
 
-  // Move the left motor forward
+  // Move the left motor forward at given speed
   void motorLReverse(uint8_t speed){
     digitalWrite(Ldir_pin,LOW);
     analogWrite(pwmL_pin, speed);
