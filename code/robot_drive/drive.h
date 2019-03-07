@@ -9,16 +9,11 @@
  *    Packages  : none
  *    Files     : TB6612FNG.h
  */
+ 
 #ifndef __ROBOT_H__
 #define __ROBOT_H__
 
 #include "TB6612FNG.h"
-
-// pauses the motor between different commands to help with precision
-const int motorPause = 275;
-
-// controls how long the robot turns and is set during init
-static int turnPause;
 
 // create an instance of the MotorDrive class called motorAB
 MotorDriver motorAB;
@@ -33,10 +28,9 @@ Robot(){
 }
 
 // initializes robot and sets up motor pins
-void init(int turnP){
+void init(){
    motorAB.init();
    motorAB.begin();
-   turnPause = turnP;
    motorAB.stopBothMotors();
 }
 
