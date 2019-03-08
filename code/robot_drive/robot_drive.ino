@@ -4,6 +4,16 @@
  *  Created: 7 Mar 2019
  *  Description: Arduino Sketch to drive the robot in different patterns.
  *  
+ *  Assignment:
+ *    1) Drive the DFECBot forward.
+ *    2) Drive the DFECBot forward and reverse.
+ *    3) Drive the DFECBot forward, turn around, and return to start.
+ *    4) Drive the DFECBot in a square.
+ *    5) Drive the DFECBot in a small circle.
+ *    6) Drive the DFECBot in a large circle.
+ *    7) Drive the DFECBot in a pattern of choice.
+ *    
+ *  
  *  Required Files:
  *    Libraries : none
  *    Packages  : none
