@@ -31,7 +31,7 @@ void setup() {
 }
 
 void loop() {
-  // read and print value ouputted by DFECBot's right line sensor
+  // read and print value ouputted by DFECBot's left line sensor
   float line_L = analogRead(lineL);
   Serial.print("Left: "); Serial.println(line_L);
 
