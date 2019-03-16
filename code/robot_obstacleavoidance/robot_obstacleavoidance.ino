@@ -1,17 +1,21 @@
 /* 
- *  Filename: robot_irsensors.ino
+ *  Filename: robot_obstacleavoidance.ino
  *  Author: Capt Steven Beyer
- *  Created: 8 Mar 2019
+ *  Created: 16 Mar 2019
  *  Description: Example Arduino Sketch that prints 
  *    values outputted by the DFECBot's left IR Sensor.
  *    
  *  Assignment:
- *    1) Print the values outputted by the DFECBot's center and right 
- *      QRE1113 Line Sensors to the serial monitor.
- *    3) Observe how these values change if the sensor is over a solid 
- *      black line.
- *    2) Program the DFECBot to follow a line using the 3 QRE1113 Line
- *      Sensors.
+ *    1) Print the values outputted by the DFECBot's center and 
+ *      right GP2Y0A51SK0F Analog Distance Sensor to the serial 
+ *      monitor.
+ *    3) Use a ruler to confirm the accuracy of each distance 
+ *      sensor - the sensor should be fairly accurate between 
+ *      3 cm and 12 cm.
+ *    2) Program the DFECBot to detect  an object within 4 cm 
+ *      in front of, to the left of, and to the right of the 
+ *      DFECBott using the three Distance Sensors.
+ *    3) OPTIONAL: Limit drifting within a maze.
  *  
  *  Required Files:
  *    Libraries : none

@@ -19,7 +19,6 @@
 }
 
 \begin{document}
-	%	\footnotetext{Examples are abstracted from Tutorials Point, "Arduino", 2019, accessed Feb 18, 2019. [Online]. Available: https://www.tutorialspoint.com/arduino/index.htm}
 	\maketitle
 	
 	\section{Collaboration Policy.}
@@ -57,7 +56,7 @@
 	\section{Introduction.}
 	
 	\subsection{QRE1113 Line Sensor}
-	The QRE1113 Line Sensor uses an infrared radiation (IR) reflectance sensor with an IR light-emitting diode (LED) and an IR sensitive phototransistor.\footnote{Information found at Sparkfun, \url{https://www.sparkfun.com/products/9454}} The sensors will be powered using the $5\ V$ and ground pins on the Arduino. Powering the sensors illuminates the IR LED and a $100\ \Omega$ resistor is on-board and placed in series with the LED to limit current. The output of the phototransistor is tied to a $10\ nF$ capacitor. The faster the capacitor discharges, the more reflective the surface is.\footnotemark[1]
+	The QRE1113 Line Sensor uses an infrared radiation (IR) reflectance sensor with an IR light-emitting diode (LED) and an IR sensitive phototransistor.\footnote{Information found at Sparkfun, \url{https://www.sparkfun.com/products/9454}} The sensors will be powered using the $5\ V$ and ground pins on the Arduino. Powering the sensors illuminates the IR LED. A $100\ \Omega$ resistor is on-board and placed in series with the LED to limit current. The output of the phototransistor is tied to a $10\ nF$ capacitor. The faster the capacitor discharges, the more reflective the surface is.\footnotemark[1] The QRE1113 has an optimal sensing distance between $.25\ mm$ and $5\ mm$.\footnote{Fairchild Semiconductor, QRE1113 Datasheet, \url{https://www.robotshop.com/media/files/zip/documentation-rob-09453.zip}}
 	
 	Connect your three QRE1113 Line Sensors to the spacer underneath the base layer. Space them evenly and secure them using three $\#2-56\ x\ 1/4”$ bolts and nuts. Wire the sensors according to the schematic shown in Figure~\ref{Fig Line}.
 	
@@ -75,7 +74,7 @@
 	This example Arduino Sketch provides code to read the values outputted by the DFECBot's left QRE1113 Line Sensor (see below example).
 	
 	\begin{lstlisting}
-		// read and print value ouputted by DFECBot's right line sensor
+		// read and print value ouputted by DFECBot's left line sensor
 		float line_L = analogRead(lineL);
 		Serial.print("Left: "); Serial.println(line_L);
 	\end{lstlisting}
@@ -88,7 +87,7 @@
 	\textbf{Use the example code provided, \path{TB6612FNG.H}, and \path{drive.h} to code the DFECBot to do the following:}
 		
 	\begin{enumerate}
-		\item Print the values outputted by the DFECBot's center and right QRE1113 Line Sensors to the serial monitor.
+		\item Print the values from the DFECBot's center and right QRE1113 Line Sensors to the serial monitor.
 		\item Observe how these values change if the sensor is over a solid black line.
 		\item Program the DFECBot to follow a line using the 3 QRE1113 Line Sensors.
 			\begin{enumerate}
@@ -96,5 +95,7 @@
 				\item If the right sensor detects the line, turn left slightly until the middle sensor detects the line.
 				\item If the left sensor detects the line, turn right slightly until the middle sensor detects the line.
 			\end{enumerate}
+		
+			\textbf{Hint:} You may need to code two functions in \path{drive.h} to have the DFECBot make a slight right or left correction.
 	\end{enumerate} 	
 \end{document}
