@@ -3,10 +3,10 @@
  *  Author: Capt Steven Beyer
  *  Created: 16 Mar 2019
  *  Description: Example Arduino Sketch that prints 
- *    values outputted by the DFECBot's left IR Sensor.
+ *    values from the DFECBot's left IR Sensor.
  *    
  *  Assignment:
- *    1) Print the values outputted by the DFECBot's center and 
+ *    1) Print the values from the DFECBot's center and 
  *      right GP2Y0A51SK0F Analog Distance Sensor to the serial 
  *      monitor.
  *    3) Use a ruler to confirm the accuracy of each distance 
@@ -45,7 +45,7 @@ float distCalc(float sensorVal){
   }
 
 void loop() {
-  // read/convert/print value ouputted by DFECBot's left IR sensor
+  // read/convert/print value from the DFECBot's left IR sensor
   float ir_L = analogRead(irL);
   float distL = distCalc(ir_L);
   Serial.print("Left: "); Serial.println(distL);

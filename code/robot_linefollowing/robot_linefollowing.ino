@@ -3,10 +3,10 @@
  *  Author: Capt Steven Beyer
  *  Created: 8 Mar 2019
  *  Description: Example Arduino Sketch that prints 
- *    values outputted by the DFECBot's left QRE1113 Line Sensor.
+ *    values from the DFECBot's left QRE1113 Line Sensor.
  *    
  *  Assignment:
- *    1) Print the values outputted by the DFECBot's center and right 
+ *    1) Print the values from the DFECBot's center and right 
  *      QRE1113 Line Sensors to the serial monitor.
  *    3) Observe how these values change if the sensor is over a solid 
  *      black line.
@@ -31,7 +31,7 @@ void setup() {
 }
 
 void loop() {
-  // read and print value ouputted by DFECBot's left line sensor
+  // read and print value from the DFECBot's left line sensor
   float line_L = analogRead(lineL);
   Serial.print("Left: "); Serial.println(line_L);
 

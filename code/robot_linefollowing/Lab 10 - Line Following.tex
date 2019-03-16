@@ -71,10 +71,10 @@
 	Browse to \path{K:\DF\DFEC\ECE210\Labs\Lab 10 - Line Following} and copy the \path{robot_linefollowing} folder to your computer. Open \path{robot_linefollowing.ino}. Opening the \textit{.ino} file should open 3 files in your Arduino IDE: \path{robot_linefollowing.ino}, \path{drive.h}, and \path{TB6612FNG.h}. The two \textit{.h} files are the same header files used during Lab 9 and the \textit{.ino} file is your Arduino sketch.
 	
 	\subsubsection{robot\_linefollowing.ino}
-	This example Arduino Sketch provides code to read the values outputted by the DFECBot's left QRE1113 Line Sensor (see below example).
+	This example Arduino Sketch provides code to read the values from the DFECBot's left QRE1113 Line Sensor (see below example).
 	
 	\begin{lstlisting}
-		// read and print value ouputted by DFECBot's left line sensor
+		// read and print value from the DFECBot's left line sensor
 		float line_L = analogRead(lineL);
 		Serial.print("Left: "); Serial.println(line_L);
 	\end{lstlisting}

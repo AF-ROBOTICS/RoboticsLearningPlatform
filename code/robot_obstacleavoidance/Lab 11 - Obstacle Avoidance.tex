@@ -70,8 +70,8 @@
 	\subsection{Example Code}
 	Browse to \path{K:\DF\DFEC\ECE210\Labs\Lab 11 - Obstacle Avoidance} and copy the \\ \path{robot_obstacleavoidance} folder to your computer. Open \path{robot_obstacleavoidance.ino}. Opening the \textit{.ino} file should open 3 files in your Arduino IDE: \path{robot_obstacleavoidance.ino}, \path{drive.h}, and \path{TB6612FNG.h}. The two \textit{.h} files are the same header files used during previous labs and the \textit{.ino} file is your Arduino sketch.
 	
-	\subsubsection{robot\_linefollowing.ino}
-	This example Arduino Sketch provides code to read the values outputted by the DFECBot's left Distance Sensor (see below example) and convert the value to a distance.
+	\subsubsection{robot\_obstacleavoidance.ino}
+	This example Arduino Sketch provides code to read the values from the DFECBot's left Distance Sensor (see below example) and convert the value to a distance.
 	
 	\begin{lstlisting}
 		/*
@@ -86,7 +86,7 @@
 	\end{lstlisting}
 	
 	\begin{lstlisting}
-		// read/convert/print value ouputted by DFECBot's left IR sensor
+		// read/convert/print value from the DFECBot's left IR sensor
 		float ir_L = analogRead(irL);
 		float distL = distCalc(ir_L);
 		Serial.print("Left: "); Serial.println(distL);
