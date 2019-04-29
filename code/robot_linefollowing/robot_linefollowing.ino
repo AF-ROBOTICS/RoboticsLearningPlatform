@@ -24,9 +24,17 @@
 // pin used by the left line sensor
 const int lineL = A3;
 
+// sets the speed of the robot
+const int speed = 200;
+
+// create an instance of the robot class from drive.h
+Robot robot;
+
 void setup() {
-  // set the pin connected to the left line sensor to an input
+  // initialize robot instance setting pins
   pinMode(lineL, INPUT);
+  
+  robot.init();
   Serial.begin(9600);
 }
 

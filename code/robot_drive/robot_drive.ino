@@ -32,7 +32,7 @@ const int turnDelay = 500;
 Robot robot;
 
 void setup(){
-  // initialize robot instance setting pins and turn delay
+  // initialize robot instance setting pins
   robot.init();
 }
 
