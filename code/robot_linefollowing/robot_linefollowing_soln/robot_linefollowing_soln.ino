@@ -22,50 +22,115 @@
 #include "drive.h"
  
 // pin used by the left line sensor
-const int lineL = A3;
-const int lineC = A4;
-const int lineR = A5;
+const int lineR1 = 2;
+const int lineR2 = 5;
+const int lineC = 7;
+const int lineL2 = 8;
+const int lineL1 = 10;
 
-const int speed = 100;
+const int speed = 150;
+
+boolean hardLeft = false;
+boolean hardRight = false;
+boolean offTrack = false;
 
 Robot robot;
 
 void setup() {
-  // set the pin connected to the left line sensor to an input
-  pinMode(lineL, INPUT);
-  pinMode(lineC, INPUT);
-  pinMode(lineR, INPUT);
   robot.init();
   Serial.begin(9600);
 }
 
 void loop() {
   // read and print value ouputted by DFECBot's sensors
-  float line_L = analogRead(lineL);
-  float line_R = analogRead(lineR);
-  float line_C = analogRead(lineC);
-  Serial.print("Left: "); Serial.println(line_L);
-  Serial.print("Center: "); Serial.println(line_C);
-  Serial.print("Right: "); Serial.println(line_R);
+  int line_R1 = readQD(lineR1);
+  int line_R2 = readQD(lineR2);
+  int line_C = readQD(lineC);
+  int line_L2 = readQD(lineL2);
+  int line_L1 = readQD(lineL1);
 
   // center line sensor detects line
-  if (line_L < 650 and line_C > 650 and line_R < 650){
+  if (line_C < 200 and line_R1 > 200 and line_R2 >200 and line_L1 > 200 and line_L2 >200){
     robot.forward(speed);
-    Serial.println("Center");
+    hardLeft = false;
+    hardRight = false;
+    offTrack = false;
   }
-  // left line sensor detects line
-  else if (line_L > 650 and line_C < 650 and line_R < 650){
-    robot.slightLeft(speed);
-    Serial.println("Left");
+
+  // slightly off center to the right
+  else if (line_C < 200 and line_R2 < 200){
+    robot.slightSlightRight(speed);
+    hardLeft = false;
+    hardRight = false;
+    offTrack = false;
   }
-  // right line sensor detects line
-  else if (line_L < 650 and line_C < 650 and line_R > 650){
+
+  // slightly off center to the left
+  else if (line_C < 200 and line_L2 <200){
+    robot.slightSlightLeft(speed);
+    hardLeft = false;
+    hardRight = false;
+    offTrack = false;
+  }
+
+  // right of center
+  else if (line_R2 < 200 and line_R1 < 200){
     robot.slightRight(speed);
-    Serial.println("Right");
+    hardLeft = false;
+    hardRight = false;
+    offTrack = false;
   }
-  // no line detected, stay straight
+
+  // left of center
+  else if (line_L2 < 200 and line_L1 < 200){
+    robot.slightLeft(speed);
+    hardLeft = false;
+    hardRight = false;
+    offTrack = false;
+  }
+
+  // far right of center
+  else if (line_R1 < 200 and line_R2 > 200){
+    if(!offTrack){
+      robot.hardRight(speed);
+      hardRight = true;
+    }
+  }
+
+  // far left of center
+  else if (line_L1 < 200 and line_L2 > 200){
+    if(!offTrack){
+      robot.hardLeft(speed);
+      hardLeft = true;
+    }
+  }
+  
+  // no line detected
   else{
-    robot.forward(speed);
-    Serial.println("Default");
+    if (hardLeft){
+      robot.slightLeft(speed);
+    }
+    else if (hardRight){
+      robot.slightRight(speed);
+    }
+    else{
+      robot.forward(speed);
+    }
+    offTrack = true;
   }
+
+  //delay(1000);
+}
+
+int readQD(int line_pin){
+  pinMode(line_pin,OUTPUT);
+  digitalWrite(line_pin,HIGH);
+  delayMicroseconds(10);
+  pinMode(line_pin,INPUT);
+
+  long time=micros();
+
+  while(digitalRead(line_pin)==HIGH&&micros()-time<3000);
+  int diff=micros()-time;
+  return diff;
 }

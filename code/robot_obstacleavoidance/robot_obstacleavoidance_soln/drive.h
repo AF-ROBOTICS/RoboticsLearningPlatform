@@ -54,7 +54,7 @@ void turnRight(int spd){
 
 // drive the DFECBot forward until next command
 void forward(int spd){
-  motorAB.motorRForward(spd*1.065);
+  motorAB.motorRForward(spd);
   motorAB.motorLForward(spd);
 }
 
@@ -66,36 +66,14 @@ void reverse(int spd){
 
 // correct right slightly
 // To-Do: Drive each wheel forward, one slightly slower than other
-void slightSlightRight(int spd){
-  motorAB.motorLForward(spd);
-  motorAB.motorRForward(spd*.965);
-}
-
 void slightRight(int spd){
-  motorAB.motorLForward(spd*1.25);
-  motorAB.motorRForward(spd*.615);
-}
-
-void hardRight(int spd){
-  motorAB.motorLForward(spd*1.55);
-  motorAB.motorRForward(spd*.415);
+  
 }
 
 // correct left slightly
 // To-Do: Drive each wheel forward, one slightly slower than other
-void slightSlightLeft(int spd){
-  motorAB.motorLForward(spd*.9);
-  motorAB.motorRForward(spd*1.065);
-}
-
 void slightLeft(int spd){
-  motorAB.motorLForward(spd*.55);
-  motorAB.motorRForward(spd*1.315);
-}
-
-void hardLeft(int spd){
-  motorAB.motorLForward(spd*.35);
-  motorAB.motorRForward(spd*1.615);
+  
 }
 
 private:
