@@ -1,0 +1,58 @@
+\hypertarget{util_8h}{}\section{P\+C\+B\+\_\+test/\+P\+C\+B\+\_\+test/util.h File Reference}
+\label{util_8h}\index{P\+C\+B\+\_\+test/\+P\+C\+B\+\_\+test/util.\+h@{P\+C\+B\+\_\+test/\+P\+C\+B\+\_\+test/util.\+h}}
+
+
+Contains a variety of miscellaneous math functions to allow for cleaner code.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{util_8h_a92e22a126ad6bf9d255b517e70d083f6}{Direction} \+: byte \{ {\bfseries East} = (1 $<$$<$ 0), 
+{\bfseries North} = (1 $<$$<$ 1), 
+{\bfseries West} = (1 $<$$<$ 2), 
+{\bfseries South} = (1 $<$$<$ 3)
+ \}\begin{DoxyCompactList}\small\item\em Represents all directions in the maze. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{util_8h_ab3bf9f71e060eb5fe4c94a7c13eacc5a}\label{util_8h_ab3bf9f71e060eb5fe4c94a7c13eacc5a}} 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{util_8h_ab3bf9f71e060eb5fe4c94a7c13eacc5a}{signum} (const T \&value)
+\begin{DoxyCompactList}\small\item\em A type-\/independent way to get the sign of a number. Returns -\/1, 0, or 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_af27cab9fc0fccc46073d5a597f38bf44}\label{util_8h_af27cab9fc0fccc46073d5a597f38bf44}} 
+double \hyperlink{util_8h_af27cab9fc0fccc46073d5a597f38bf44}{accel\+Ramp} (double start, double target, double current)
+\begin{DoxyCompactList}\small\item\em Returns a value between \mbox{[}0.\+0, 1.\+0\mbox{]}, based on how far between \textquotesingle{}start\textquotesingle{} and \textquotesingle{}target\textquotesingle{} the input \textquotesingle{}current\textquotesingle{} is. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_af40a993bf4371ac776eed7ce1ad3ab58}\label{util_8h_af40a993bf4371ac776eed7ce1ad3ab58}} 
+double \hyperlink{util_8h_af40a993bf4371ac776eed7ce1ad3ab58}{decel\+Ramp} (double start, double target, double current)
+\begin{DoxyCompactList}\small\item\em Like accel\+Ramp, but reversed (i.\+e. starts at 1.\+0 and decreases to 0.\+0). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{util_8h_a61a31038d989bdef2da1d66b040f3912}\label{util_8h_a61a31038d989bdef2da1d66b040f3912}} 
+double \hyperlink{util_8h_a61a31038d989bdef2da1d66b040f3912}{both\+Ramp} (double start, double target, double current)
+\begin{DoxyCompactList}\small\item\em Combines accel\+Ramp and decel\+Ramp, switching from one to the other halfway between start and target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains a variety of miscellaneous math functions to allow for cleaner code. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{util_8h_a92e22a126ad6bf9d255b517e70d083f6}\label{util_8h_a92e22a126ad6bf9d255b517e70d083f6}} 
+\index{util.\+h@{util.\+h}!Direction@{Direction}}
+\index{Direction@{Direction}!util.\+h@{util.\+h}}
+\subsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily enum \hyperlink{util_8h_a92e22a126ad6bf9d255b517e70d083f6}{Direction} \+: byte}
+
+
+
+Represents all directions in the maze. 
+
+These directions do N\+OT actually correspond to real cardinal directions. They are all relative to the robot\textquotesingle{}s starting position, which is in the South-\/\+Western corner, facing East. 
