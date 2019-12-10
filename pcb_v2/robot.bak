@@ -1,37 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:robot-rescue
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:kevin
+EESchema Schematic File Version 4
 LIBS:robot-cache
-EELAYER 25 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -46,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L L7805 U2
+L robot-rescue:L7805 U2
 U 1 1 5AAE9DC4
 P 6100 3800
 F 0 "U2" H 5950 3925 50  0000 C CNN
@@ -57,18 +26,18 @@ F 3 "" H 6100 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L L78L33_TO92 U3
+L robot-rescue:L78L33_TO92 U3
 U 1 1 5AAE9F7B
 P 6000 5400
 F 0 "U3" H 5850 5525 50  0000 C CNN
 F 1 "L78L33_TO92" H 6000 5525 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 6000 5625 50  0001 C CIN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 6000 5625 50  0001 C CIN
 F 3 "" H 6000 5350 50  0001 C CNN
 	1    6000 5400
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C4
+L robot-rescue:C_Small C4
 U 1 1 5AAEA01C
 P 6500 5600
 F 0 "C4" H 6510 5670 50  0000 L CNN
@@ -79,7 +48,7 @@ F 3 "" H 6500 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR01
+L power:+3V3 #PWR01
 U 1 1 5AAEA3B1
 P 6500 5250
 F 0 "#PWR01" H 6500 5100 50  0001 C CNN
@@ -90,7 +59,7 @@ F 3 "" H 6500 5250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +BATT #PWR02
+L power:+BATT #PWR02
 U 1 1 5AAEA3F1
 P 5750 1050
 F 0 "#PWR02" H 5750 900 50  0001 C CNN
@@ -101,7 +70,7 @@ F 3 "" H 5750 1050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR03
+L power:GND #PWR03
 U 1 1 5AAEA777
 P 7100 2800
 F 0 "#PWR03" H 7100 2550 50  0001 C CNN
@@ -112,7 +81,7 @@ F 3 "" H 7100 2800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR04
+L power:GND #PWR04
 U 1 1 5AAEA7AD
 P 5950 2800
 F 0 "#PWR04" H 5950 2550 50  0001 C CNN
@@ -123,7 +92,7 @@ F 3 "" H 5950 2800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR05
+L power:GND #PWR05
 U 1 1 5AAEABDE
 P 6000 5950
 F 0 "#PWR05" H 6000 5700 50  0001 C CNN
@@ -134,7 +103,7 @@ F 3 "" H 6000 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR06
+L power:GND #PWR06
 U 1 1 5AAEB952
 P 6100 4350
 F 0 "#PWR06" H 6100 4100 50  0001 C CNN
@@ -145,37 +114,37 @@ F 3 "" H 6100 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5500 3700 5500 3950
+	5500 3700 5500 3800
 Connection ~ 5500 3800
 Wire Wire Line
-	6100 4100 6100 4350
+	6100 4100 6100 4300
 Wire Wire Line
 	5500 4150 5500 4300
 Connection ~ 6100 4300
 Wire Wire Line
-	6650 3700 6650 3900
+	6650 3700 6650 3800
 Connection ~ 6650 3800
 Wire Wire Line
-	5450 5250 5450 5500
+	5450 5250 5450 5400
 Wire Wire Line
 	5700 5400 5450 5400
 Connection ~ 5450 5400
 Wire Wire Line
 	6300 5400 6500 5400
 Wire Wire Line
-	6500 5250 6500 5500
+	6500 5250 6500 5400
 Connection ~ 6500 5400
 Wire Wire Line
-	6000 5700 6000 5950
+	6000 5700 6000 5900
 Wire Wire Line
 	5450 5700 5450 5900
 Wire Wire Line
-	5450 5900 6500 5900
+	5450 5900 6000 5900
 Connection ~ 6000 5900
 Wire Wire Line
 	6500 5900 6500 5700
 $Comp
-L Conn_01x02 J1
+L robot-rescue:Conn_01x02 J1
 U 1 1 5AAEC74A
 P 5450 2150
 F 0 "J1" H 5450 2250 50  0000 C CNN
@@ -186,7 +155,7 @@ F 3 "" H 5450 2150 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J2
+L robot-rescue:Conn_01x02 J2
 U 1 1 5AAEC812
 P 5450 2650
 F 0 "J2" H 5450 2750 50  0000 C CNN
@@ -197,7 +166,7 @@ F 3 "" H 5450 2650 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L +BATT #PWR07
+L power:+BATT #PWR07
 U 1 1 5AAEDF56
 P 9200 1350
 F 0 "#PWR07" H 9200 1200 50  0001 C CNN
@@ -208,7 +177,7 @@ F 3 "" H 9200 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #FLG08
+L power:PWR_FLAG #FLG08
 U 1 1 5AAEE243
 P 9200 1500
 F 0 "#FLG08" H 9200 1575 50  0001 C CNN
@@ -221,7 +190,7 @@ $EndComp
 Wire Wire Line
 	9200 1350 9200 1500
 $Comp
-L PWR_FLAG #FLG09
+L power:PWR_FLAG #FLG09
 U 1 1 5AAEEF89
 P 9650 1350
 F 0 "#FLG09" H 9650 1425 50  0001 C CNN
@@ -232,7 +201,7 @@ F 3 "" H 9650 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L power:GND #PWR010
 U 1 1 5AAEEFC4
 P 9650 1500
 F 0 "#PWR010" H 9650 1250 50  0001 C CNN
@@ -245,7 +214,7 @@ $EndComp
 Wire Wire Line
 	9650 1350 9650 1500
 $Comp
-L CP C6
+L robot-rescue:CP C6
 U 1 1 5AC78EBB
 P 5250 4050
 F 0 "C6" H 5275 4150 50  0000 L CNN
@@ -261,9 +230,9 @@ Wire Wire Line
 	5250 4200 5250 4300
 Connection ~ 5500 4300
 Wire Wire Line
-	5250 4300 6650 4300
+	5250 4300 5500 4300
 $Comp
-L LED D1
+L robot-rescue:LED D1
 U 1 1 5AC7BECD
 P 7400 4050
 F 0 "D1" H 7400 4150 50  0000 C CNN
@@ -274,7 +243,7 @@ F 3 "" H 7400 4050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GND #PWR011
+L power:GND #PWR011
 U 1 1 5AC7C12B
 P 7400 4700
 F 0 "#PWR011" H 7400 4450 50  0001 C CNN
@@ -285,7 +254,7 @@ F 3 "" H 7400 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R1
+L robot-rescue:R_Small R1
 U 1 1 5AC7C168
 P 7400 4450
 F 0 "R1" H 7430 4470 50  0000 L CNN
@@ -310,11 +279,11 @@ Motor Power 5V
 Text Notes 1000 2650 0    60   ~ 0
 Dual Motor Driver\nContinous: 1.2A\nPeak: 3A
 Wire Wire Line
-	5250 3800 5800 3800
+	5250 3800 5500 3800
 Wire Wire Line
 	6400 3800 6650 3800
 $Comp
-L +5V #PWR012
+L power:+5V #PWR012
 U 1 1 5AC814AB
 P 3750 5400
 F 0 "#PWR012" H 3750 5250 50  0001 C CNN
@@ -325,7 +294,7 @@ F 3 "" H 3750 5400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R3
+L robot-rescue:R_Small R3
 U 1 1 5AC81542
 P 3750 5600
 F 0 "R3" H 3780 5620 50  0000 L CNN
@@ -336,7 +305,7 @@ F 3 "" H 3750 5600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Conn_01x02 J11
+L robot-rescue:Conn_01x02 J11
 U 1 1 5AC818B6
 P 2800 6050
 F 0 "J11" H 2800 6150 50  0000 C CNN
@@ -353,7 +322,7 @@ B1
 Text GLabel 3050 5750 1    60   Input ~ 0
 B2
 $Comp
-L GND #PWR013
+L power:GND #PWR013
 U 1 1 5AC81A5E
 P 3750 6250
 F 0 "#PWR013" H 3750 6000 50  0001 C CNN
@@ -364,7 +333,7 @@ F 3 "" H 3750 6250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3000 5950 3150 5950
+	3000 5950 3050 5950
 Wire Wire Line
 	3750 6150 3750 6250
 Wire Wire Line
@@ -389,7 +358,7 @@ B2
 Wire Wire Line
 	3250 6050 3000 6050
 $Comp
-L +5V #PWR014
+L power:+5V #PWR014
 U 1 1 5AC827CE
 P 5050 6600
 F 0 "#PWR014" H 5050 6450 50  0001 C CNN
@@ -400,7 +369,7 @@ F 3 "" H 5050 6600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R_Small R4
+L robot-rescue:R_Small R4
 U 1 1 5AC827D4
 P 5050 6800
 F 0 "R4" H 5080 6820 50  0000 L CNN
@@ -411,7 +380,7 @@ F 3 "" H 5050 6800 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Conn_01x02 J12
+L robot-rescue:Conn_01x02 J12
 U 1 1 5AC827DA
 P 4100 7250
 F 0 "J12" H 4100 7350 50  0000 C CNN
@@ -426,7 +395,7 @@ A1
 Text GLabel 4350 6900 1    60   Input ~ 0
 A2
 $Comp
-L GND #PWR015
+L power:GND #PWR015
 U 1 1 5AC827E2
 P 5050 7450
 F 0 "#PWR015" H 5050 7200 50  0001 C CNN
@@ -437,7 +406,7 @@ F 3 "" H 5050 7450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4300 7150 4450 7150
+	4300 7150 4350 7150
 Wire Wire Line
 	5050 7350 5050 7450
 Wire Wire Line
@@ -464,7 +433,7 @@ A1
 Text GLabel 7100 2050 2    60   Input ~ 0
 APWM
 $Comp
-L R_Small R6
+L robot-rescue:R_Small R6
 U 1 1 5ACA6B3B
 P 4550 7150
 F 0 "R6" H 4580 7170 50  0000 L CNN
@@ -475,7 +444,7 @@ F 3 "" H 4550 7150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R_Small R5
+L robot-rescue:R_Small R5
 U 1 1 5ACA6BBA
 P 3250 5950
 F 0 "R5" H 3280 5970 50  0000 L CNN
@@ -494,7 +463,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 1150 5750 1050
 $Comp
-L C_Small C2
+L robot-rescue:C_Small C2
 U 1 1 5ACA7B01
 P 5500 4050
 F 0 "C2" H 5510 4120 50  0000 L CNN
@@ -505,7 +474,7 @@ F 3 "" H 5500 4050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP C3
+L robot-rescue:CP C3
 U 1 1 5ACA7C21
 P 6650 4050
 F 0 "C3" H 6675 4150 50  0000 L CNN
@@ -518,7 +487,7 @@ $EndComp
 Wire Wire Line
 	6650 4300 6650 4200
 $Comp
-L Conn_02x05_Odd_Even J3
+L robot-rescue:Conn_02x05_Odd_Even J3
 U 1 1 5ACA8C3D
 P 3350 1500
 F 0 "J3" H 3400 1800 50  0000 C CNN
@@ -529,7 +498,7 @@ F 3 "" H 3350 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR016
+L power:+5V #PWR016
 U 1 1 5ACA8D25
 P 2700 1600
 F 0 "#PWR016" H 2700 1450 50  0001 C CNN
@@ -540,7 +509,7 @@ F 3 "" H 2700 1600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3V3 #PWR017
+L power:+3V3 #PWR017
 U 1 1 5ACA94EC
 P 2850 1500
 F 0 "#PWR017" H 2850 1350 50  0001 C CNN
@@ -551,7 +520,7 @@ F 3 "" H 2850 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR018
+L power:GND #PWR018
 U 1 1 5ACA9BA5
 P 3800 1850
 F 0 "#PWR018" H 3800 1600 50  0001 C CNN
@@ -564,7 +533,7 @@ $EndComp
 Wire Wire Line
 	3650 1300 3800 1300
 Wire Wire Line
-	3800 1300 3800 1850
+	3800 1300 3800 1400
 Wire Wire Line
 	3650 1400 3800 1400
 Connection ~ 3800 1400
@@ -578,7 +547,7 @@ Wire Wire Line
 	3650 1700 3800 1700
 Connection ~ 3800 1700
 Wire Wire Line
-	2700 1600 3150 1600
+	2700 1600 2800 1600
 Wire Wire Line
 	3150 1400 3000 1400
 Wire Wire Line
@@ -587,7 +556,7 @@ Wire Wire Line
 	3000 1300 3150 1300
 Connection ~ 3000 1300
 $Comp
-L +3V3 #PWR019
+L power:+3V3 #PWR019
 U 1 1 5ACAB044
 P 7400 3750
 F 0 "#PWR019" H 7400 3600 50  0001 C CNN
@@ -598,7 +567,7 @@ F 3 "" H 7400 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C1
+L robot-rescue:C_Small C1
 U 1 1 5ACAB594
 P 5450 5600
 F 0 "C1" H 5460 5670 50  0000 L CNN
@@ -609,7 +578,7 @@ F 3 "" H 5450 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR020
+L power:+5V #PWR020
 U 1 1 5ACB0D91
 P 6650 3700
 F 0 "#PWR020" H 6650 3550 50  0001 C CNN
@@ -620,7 +589,7 @@ F 3 "" H 6650 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR021
+L power:+5V #PWR021
 U 1 1 5ACB1407
 P 5850 2000
 F 0 "#PWR021" H 5850 1850 50  0001 C CNN
@@ -631,7 +600,7 @@ F 3 "" H 5850 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR022
+L power:+5V #PWR022
 U 1 1 5ACB2641
 P 5450 5250
 F 0 "#PWR022" H 5450 5100 50  0001 C CNN
@@ -642,7 +611,7 @@ F 3 "" H 5450 5250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Conn_01x02 J4
+L robot-rescue:Conn_01x02 J4
 U 1 1 5ACB957B
 P 5300 1550
 F 0 "J4" H 5300 1650 50  0000 C CNN
@@ -653,7 +622,7 @@ F 3 "" H 5300 1550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR023
+L power:GND #PWR023
 U 1 1 5ACB9CCB
 P 4850 1350
 F 0 "#PWR023" H 4850 1100 50  0001 C CNN
@@ -676,7 +645,7 @@ Wire Wire Line
 Wire Wire Line
 	6950 2150 7100 2150
 $Comp
-L Conn_01x02 J7
+L robot-rescue:Conn_01x02 J7
 U 1 1 5AD01ACD
 P 5400 900
 F 0 "J7" H 5400 1000 50  0000 C CNN
@@ -687,7 +656,7 @@ F 3 "" H 5400 900 50  0001 C CNN
 	0    1    -1   0   
 $EndComp
 $Comp
-L TB6612_Motor_Driver J5
+L kevin:TB6612_Motor_Driver J5
 U 1 1 5AD3BDF9
 P 6450 2400
 F 0 "J5" H 6550 2900 50  0000 C CNN
@@ -714,11 +683,11 @@ Wire Wire Line
 Wire Wire Line
 	6100 2750 5950 2750
 Wire Wire Line
-	5950 2050 5950 2800
+	5950 2050 5950 2750
 Wire Wire Line
 	5850 2650 6100 2650
 Wire Wire Line
-	5850 2000 5850 2650
+	5850 2000 5850 2150
 Wire Wire Line
 	6100 2150 5850 2150
 Connection ~ 5850 2150
@@ -750,7 +719,7 @@ Wire Wire Line
 Wire Wire Line
 	5700 2550 5650 2550
 $Comp
-L +BATT #PWR024
+L power:+BATT #PWR024
 U 1 1 5AD3E29C
 P 5500 3700
 F 0 "#PWR024" H 5500 3550 50  0001 C CNN
@@ -761,7 +730,7 @@ F 3 "" H 5500 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +BATT #PWR025
+L power:+BATT #PWR025
 U 1 1 5AD3F3B7
 P 3000 1300
 F 0 "#PWR025" H 3000 1150 50  0001 C CNN
@@ -779,7 +748,7 @@ Connection ~ 2800 1600
 Wire Wire Line
 	3150 1500 2850 1500
 $Comp
-L +5V #PWR026
+L power:+5V #PWR026
 U 1 1 5AD44078
 P 7650 2300
 F 0 "#PWR026" H 7650 2150 50  0001 C CNN
@@ -792,25 +761,167 @@ $EndComp
 Wire Wire Line
 	7650 2350 7650 2300
 $Comp
-L 2N3904 Q1
+L robot-rescue:2N3904 Q1
 U 1 1 5AD4E8D0
 P 3650 5950
 F 0 "Q1" H 3850 6025 50  0000 L CNN
 F 1 "2N3904" H 3850 5950 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 3850 5875 50  0001 L CIN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 3850 5875 50  0001 L CIN
 F 3 "" H 3650 5950 50  0001 L CNN
 	1    3650 5950
 	1    0    0    -1  
 $EndComp
 $Comp
-L 2N3904 Q2
+L robot-rescue:2N3904 Q2
 U 1 1 5AD4EECC
 P 4950 7150
 F 0 "Q2" H 5150 7225 50  0000 L CNN
 F 1 "2N3904" H 5150 7150 50  0000 L CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" H 5150 7075 50  0001 L CIN
+F 2 "Package_TO_SOT_THT:TO-92L_Inline_Wide" H 5150 7075 50  0001 L CIN
 F 3 "" H 4950 7150 50  0001 L CNN
 	1    4950 7150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3800 5500 3950
+Wire Wire Line
+	5500 3800 5800 3800
+Wire Wire Line
+	6100 4300 6100 4350
+Wire Wire Line
+	6100 4300 6650 4300
+Wire Wire Line
+	6650 3800 6650 3900
+Wire Wire Line
+	5450 5400 5450 5500
+Wire Wire Line
+	6500 5400 6500 5500
+Wire Wire Line
+	6000 5900 6000 5950
+Wire Wire Line
+	6000 5900 6500 5900
+Wire Wire Line
+	5500 4300 6100 4300
+Wire Wire Line
+	3050 5950 3150 5950
+Wire Wire Line
+	4350 7150 4450 7150
+Wire Wire Line
+	3800 1400 3800 1500
+Wire Wire Line
+	3800 1500 3800 1600
+Wire Wire Line
+	3800 1600 3800 1700
+Wire Wire Line
+	3800 1700 3800 1850
+Wire Wire Line
+	5850 2150 5850 2650
+Wire Wire Line
+	5950 2750 5950 2800
+Wire Wire Line
+	2800 1600 3150 1600
+$Comp
+L power:+BATT #PWR08
+U 1 1 5D3939F3
+P 3250 3800
+F 0 "#PWR08" H 3250 3650 50  0001 C CNN
+F 1 "+BATT" H 3265 3973 50  0000 C CNN
+F 2 "" H 3250 3800 50  0001 C CNN
+F 3 "" H 3250 3800 50  0001 C CNN
+	1    3250 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5D3A3C67
+P 3250 3950
+F 0 "R2" H 3320 3996 50  0000 L CNN
+F 1 "10k" H 3320 3905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3180 3950 50  0001 C CNN
+F 3 "~" H 3250 3950 50  0001 C CNN
+	1    3250 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5D3A64D2
+P 3250 4250
+F 0 "R7" H 3320 4296 50  0000 L CNN
+F 1 "13k" H 3320 4205 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3180 4250 50  0001 C CNN
+F 3 "~" H 3250 4250 50  0001 C CNN
+	1    3250 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 5D3AA81B
+P 3250 4400
+F 0 "#PWR09" H 3250 4150 50  0001 C CNN
+F 1 "GND" H 3255 4227 50  0000 C CNN
+F 2 "" H 3250 4400 50  0001 C CNN
+F 3 "" H 3250 4400 50  0001 C CNN
+	1    3250 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:2N3906 Q3
+U 1 1 5D3AE71B
+P 2650 4100
+F 0 "Q3" H 2841 4054 50  0000 L CNN
+F 1 "2N3906" H 2841 4145 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2850 4025 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3906.pdf" H 2650 4100 50  0001 L CNN
+	1    2650 4100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2850 4100 3250 4100
+Connection ~ 3250 4100
+$Comp
+L power:+5V #PWR027
+U 1 1 5D3B3F50
+P 2550 3800
+F 0 "#PWR027" H 2550 3650 50  0001 C CNN
+F 1 "+5V" H 2565 3973 50  0000 C CNN
+F 2 "" H 2550 3800 50  0001 C CNN
+F 3 "" H 2550 3800 50  0001 C CNN
+	1    2550 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 3800 2550 3900
+$Comp
+L Device:R R8
+U 1 1 5D3B86CA
+P 2550 4450
+F 0 "R8" H 2620 4496 50  0000 L CNN
+F 1 "1k" H 2620 4405 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2480 4450 50  0001 C CNN
+F 3 "~" H 2550 4450 50  0001 C CNN
+	1    2550 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D2
+U 1 1 5D3B8FAB
+P 2550 4750
+F 0 "D2" V 2589 4633 50  0000 R CNN
+F 1 "LED" V 2498 4633 50  0000 R CNN
+F 2 "LED_THT:LED_D3.0mm" H 2550 4750 50  0001 C CNN
+F 3 "~" H 2550 4750 50  0001 C CNN
+	1    2550 4750
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR028
+U 1 1 5D3B9E7D
+P 2550 4900
+F 0 "#PWR028" H 2550 4650 50  0001 C CNN
+F 1 "GND" H 2555 4727 50  0000 C CNN
+F 2 "" H 2550 4900 50  0001 C CNN
+F 3 "" H 2550 4900 50  0001 C CNN
+	1    2550 4900
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
