@@ -23,7 +23,7 @@ const byte address[6] = "00001";
 WiiChuck nunchuck;
 
 void setup() {
-
+  Serial.println("Start");
   //rev up those nunchucks
   nunchuck.begin();
   //Start serial for debug
@@ -32,7 +32,7 @@ void setup() {
   //Starting up radio
   radio.begin();
   // channels 0 - 127
-  radio.setChannel(0);
+  radio.setChannel(126);
   radio.setPALevel(RF24_PA_MAX);
   radio.setDataRate(RF24_250KBPS);
   radio.openWritingPipe(address);

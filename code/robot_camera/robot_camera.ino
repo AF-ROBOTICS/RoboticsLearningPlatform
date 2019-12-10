@@ -44,7 +44,7 @@ void setup(){
   // Starting up radio
   radio.begin();
   // Channels 0-127
-  radio.setChannel(0);
+  radio.setChannel(126);
   radio.openReadingPipe(1, address);
   radio.setPALevel(RF24_PA_MAX);
   radio.setDataRate(RF24_250KBPS);
@@ -54,11 +54,13 @@ void setup(){
 }
 
 void loop(){
+  Serial.println(radio.available());
   if (radio.available()){
     while (radio.available()){
       radio.read(&newPacket, sizeof(infoPacket));
     }
   }
+  if(radio.available()){
   int xVal = newPacket.X - 138;
   int yVal = newPacket.Y -130;
   int zVal = newPacket.Z;
@@ -106,4 +108,5 @@ void loop(){
     angle = 90;
   }
   servo.write(angle);
+  }
 }

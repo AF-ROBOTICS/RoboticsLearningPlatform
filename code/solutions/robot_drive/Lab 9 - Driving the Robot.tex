@@ -1,0 +1,144 @@
+\documentclass{handout}
+
+%\SetInstructor{Capt Steven Beyer}
+\SetCourseTitle{ECE210: Introduction to Electrical and Computer Engineering}
+\SetSemester{Spring 2019}
+\SetHandoutTitle{Lab 9 - Driving the Robot}
+
+%\ShowAllBlanks
+
+\usepackage[obeyspaces]{url}
+\input{../arduinoLanguage.tex}
+
+%\showsoln \setsolncolor{red}
+
+\lstset { %
+	language=Arduino,
+	frame=none,
+	basicstyle=\footnotesize,
+}
+
+\begin{document}
+	%	\footnotetext{Examples are abstracted from Tutorials Point, "Arduino", 2019, accessed Feb 18, 2019. [Online]. Available: https://www.tutorialspoint.com/arduino/index.htm}
+	\maketitle
+	
+	\section{Collaboration Policy.}
+	This is a team-of-two or individual laboratory. You may use any of the authorized resources listed below. DO NOT copy anyone else’s work.
+	
+	\textbf{Authorized Resources:} You may use any electronic or hard copy resource at your disposal as long as 1) you cite your sources and 2) your use of the materials does not go against the intent of the assignment. For example, you can use a software library that you find online to help develop a project if you cite where you found it. However, you cannot complete your project by copying all of the source code, schematics, etc and simply running it on the required hardware.
+	
+	\section{Documentation.}
+	\textit{Date:}
+	
+	\textit{Instructor who helped me:}
+	
+	\textit{Help received:}
+	
+	\section{Objectives.} 
+	\begin{enumerate}
+		\item Become familiar with the DFECBot driving functions.
+		\item Utilize the Arduino to drive the robot in multiple patterns.
+	\end{enumerate}
+	
+	\section{Materials.}
+	\begin{enumerate}
+		\item DFECBot
+		\item USB Programming Cable
+	\end{enumerate}
+	
+	\newpage
+	\clearpage
+	\pagebreak
+	
+	\section{Introduction.}
+	
+	\subsection{Source Files}
+	Browse to \path{K:\DF\DFEC\ECE210\Labs\Lab 9 - Driving the Robot} and copy the \path{robot_drive} folder to your computer. Open \path{robot_drive.ino}. Opening the \textit{.ino} file should open 3 files in your Arduino IDE: \path{robot_drive.ino}, \path{drive.h}, and \path{TB6612FNG.h}. The two \textit{.h} files are called header files and the \textit{.ino} file is your Arduino sketch. Take a look at the \path{TB6612FNG.h} first.
+	
+	\subsubsection{TB6612FNG.h}
+	This file uses five pins on the Arduino to communicate with the TB6612FNG Motor Driver chip on your PCB board. These pins are used as follows:
+	
+	\begin{description}
+		\item[Pin 3 --] Connects to the \textit{APS\_MA} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of left motor.
+		\item[Pin 4 --] Connects to the \textit{BPS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the right motor.
+		\item[Pin 6 --] Connects to the \textit{BPS\_MA} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of right motor.
+		\item[Pin 9 --] Connects to the \textit{APS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the left motor.
+	\end{description}
+	
+	In the init function, all four of these pins are set to \textit{OUTPUT} pins. Additionally, if a \textit{reset\_pin} is present it will setup the reset pin. We will not be using a \textit{reset\_pin} at this time.
+	
+	The rest of the functions are used by the \path{drive.h} file to control the robot motors (speed and direction).
+	
+	\subsubsection{drive.h}
+	This file uses the \path{TB6612FNG.h} header file to drive the robot. The \path{drive.h} file provides basic drive functions like \textit{forward()} and \textit{stopAll()}. All movement functions (forward, turn, etc) will run until the next movement function is provided. For example, to get the robot to move forward for 5 seconds then stop, the \textit{forward()} function should be called followed by a 5 second delay and the allStop() function.
+	
+	\subsubsection{robot\_drive.ino}
+	This is the main file to place drive code. This file is reliant on both the \path{drive.h} and \path{TB6612FNG.h} header files. This file provides an example to move the robot forward for five seconds, turn right, and then stop. This code will repeat continuously until the DFECBot is powered off (See below code). Delete this example code before submission.
+	
+	\begin{lstlisting}
+	/* 
+	*  Code to make the DFECBot go forward for five seconds, turn right, and stop.
+	*  This code will repeat continuously until the DFECBot is powered off
+	*  ***Delete this example code before submission***
+	*/
+	robot.forward(speed);
+	delay(5000);
+	robot.turnRight(speed);
+	delay(turnDelay);
+	robot.allStop();
+	delay(1000);
+	\end{lstlisting}
+	
+	\newpage
+	\clearpage
+	\pagebreak
+	
+	\section{Procedure}
+	\textbf{Use the example code provided, \path{TB6612FNG.H}, and \path{drive.h} to code the DFECBot to drive the following patterns. The DFECBot should pause for 2 seconds between each pattern.}
+		
+	\begin{enumerate}
+		\item Drive the DFECBot forward.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+		\end{enumerate}
+		\item Drive the DFECBot forward and reverse.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+			\item Pause for 1 second.
+			\item Drive in reverse for 5 seconds to return to the starting position.
+		\end{enumerate}
+		\item Drive the DFECBot forward, turn around, and return to start.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+			\item Pause for 1 second.
+			\item Turn around.
+			\item Drive back to start and original orientation.
+		\end{enumerate}
+		\item Drive the DFECBot in a square.
+		\begin{enumerate}
+			\item Drive in a square making right turns.
+			\item Return to the starting location and position.
+			\item Drive in a square making left turns.
+			\item Return to the starting location and position.
+		\end{enumerate}
+		\item Drive the DFECBot in a small circle.
+		\begin{enumerate}
+			\item Drive in a clockwise circle keeping one wheel fixed.
+			\item Drive in a counter clockwise circle keeping one wheel fixed.
+		\end{enumerate}
+		\item Drive the DFECBot in a large circle.
+		\begin{enumerate}
+			\item Drive in a clockwise circle with an approximate diameter of 2 feet.
+			\item Drive in a counter clockwise circle with an approximate diameter of 2 feet.
+		\end{enumerate}
+		\item Drive the DFECBot in a pattern of choice.
+		\begin{enumerate}
+			\item Drive in a pattern of your choosing.
+		\end{enumerate} 
+	
+
+\end{enumerate}
+
+
+	
+\end{document}
