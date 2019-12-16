@@ -25,8 +25,7 @@
 
 
 // sets the speed of a wheel 0 - 255
-int UL = 255;
-int UR = 255;
+int UL, UR = 255;
 // adjust turn delay to get closer to 90 deg turn
 const int turnDelay = 500;
 

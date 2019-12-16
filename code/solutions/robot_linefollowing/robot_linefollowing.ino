@@ -21,23 +21,22 @@
 #include <QTRSensors.h>
 #include "TB6612FNG.h"
 #include "Motor.h"
- 
-QTRSensors qtr;
 
+// Create an instance of the robot class from Motor.h
+Robot robot;
+
+// Line sensor values
+QTRSensors qtr;
 const uint8_t SensorCount = 8;
 uint16_t sensorValues[SensorCount];
 
+// Motor Values
 #define PWMNOMINAL 150
 #define SWING 50
 #define PWMIN (PWMNOMINAL-SWING)
 #define PWMAX (PWMNOMINAL+SWING)
-
-int32_t UL, UR; 
-
-uint32_t Kp = 20;
-
-// create an instance of the robot class from drive.h
-Robot robot;
+int32_t UL, UR; // speed of a wheel 0 - 255
+uint32_t Kp = 20; // porportional controller multiplier
 
 void setup() {
   
