@@ -18,10 +18,10 @@
  * ATmega328P, pwm works on pins 3, 5, 6, 9, 10, and 11 at 490/980Hz
  */
 // pins to connect from Arduino to PCB board to control motor
+const int Ldir  = 2;  // direction b
+const int pwmL  = 3;  // PWM
 const int Rdir  = 4;  // direction a
-const int pwmR  = 6;  // HW
-const int Ldir  = 9;  // direction b
-const int pwmL  = 3; // HW
+const int pwmR  = 5;  // PWM
 
 /*
  * The MotorDriver class provides functions to control
