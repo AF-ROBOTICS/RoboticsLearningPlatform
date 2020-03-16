@@ -2,8 +2,8 @@
 
 %\SetInstructor{Capt Steven Beyer}
 \SetCourseTitle{ECE210: Introduction to Electrical and Computer Engineering}
-\SetSemester{Spring 2019}
-\SetHandoutTitle{Lab 9 - Driving the Robot}
+%\SetSemester{Spring 2019}
+\SetHandoutTitle{Driving the BeyerBot}
 
 %\ShowAllBlanks
 
@@ -23,16 +23,9 @@
 	\maketitle
 	
 	\section{Collaboration Policy.}
-	This is a team-of-two or individual laboratory. You may use any of the authorized resources listed below. DO NOT copy anyone else’s work.
+	Collaboration is authorized.
 	
 	\textbf{Authorized Resources:} You may use any electronic or hard copy resource at your disposal as long as 1) you cite your sources and 2) your use of the materials does not go against the intent of the assignment. For example, you can use a software library that you find online to help develop a project if you cite where you found it. However, you cannot complete your project by copying all of the source code, schematics, etc and simply running it on the required hardware.
-	
-	\section{Documentation.}
-	\textit{Date:}
-	
-	\textit{Instructor who helped me:}
-	
-	\textit{Help received:}
 	
 	\section{Objectives.} 
 	\begin{enumerate}
@@ -70,7 +63,7 @@
 	The rest of the functions are used by the \path{drive.h} file to control the robot motors (speed and direction).
 	
 	\subsubsection{drive.h}
-	This file uses the \path{TB6612FNG.h} header file to drive the robot. The \path{drive.h} file provides basic drive functions like \textit{forward()} and \textit{stopAll()}. All movement functions (forward, turn, etc) will run until the next movement function is provided. For example, to get the robot to move forward for 5 seconds then stop, the \textit{forward()} function should be called followed by a 5 second delay and the allStop() function.
+	This file uses the \path{TB6612FNG.h} header file to drive the robot. The \path{drive.h} file provides basic drive functions like \textit{Motor\_Forward(leftDuty, rightDuty)} and \textit{Motor\_Stop()}. All movement functions (\textit{Motor\_Forward}, \textit{Motor\_Left}, etc) will run until the next movement function is provided. For example, to get the robot to move forward for 5 seconds then stop, the \textit{Motor\_Forward(leftDuty, rightDuty)} function should be called followed by a 5 second delay and the \textit{Moto\_Stop()} function.
 	
 	\subsubsection{robot\_drive.ino}
 	This is the main file to place drive code. This file is reliant on both the \path{drive.h} and \path{TB6612FNG.h} header files. This file provides an example to move the robot forward for five seconds, turn right, and then stop. This code will repeat continuously until the DFECBot is powered off (See below code). Delete this example code before submission.
@@ -81,11 +74,11 @@
 	*  This code will repeat continuously until the DFECBot is powered off
 	*  ***Delete this example code before submission***
 	*/
-	robot.forward(speed);
+	robot.Motor_Forward(leftDuty, rightDuty);
 	delay(5000);
-	robot.turnRight(speed);
+	robot.Motor_Right(leftDuty, rightDuty);
 	delay(turnDelay);
-	robot.allStop();
+	robot.Motor_Stop();
 	delay(1000);
 	\end{lstlisting}
 	

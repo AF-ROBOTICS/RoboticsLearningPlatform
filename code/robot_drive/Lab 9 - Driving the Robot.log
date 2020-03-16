@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.12)  8 MAR 2019 08:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.12)  5 MAR 2020 11:08
 entering extended mode
 **"./Lab 9 - Driving the Robot.tex"
 ("Lab 9 - Driving the Robot.tex"
@@ -1222,20 +1222,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1{C:/Users/Steven.beyer/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 56.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 49.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1p
 cr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr
 .fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
 
 Package Fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -1247,20 +1247,20 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
 
 ]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 90.
  
 AED: lastpage setting LastPage
 [3
 
 ] ("Lab 9 - Driving the Robot.aux") ) 
 Here is how much of TeX's memory you used:
- 34738 strings out of 492973
- 768217 string characters out of 3123591
- 904388 words of memory out of 3000000
- 38180 multiletter control sequences out of 15000+200000
+ 34740 strings out of 492973
+ 768273 string characters out of 3123591
+ 906372 words of memory out of 3000000
+ 38182 multiletter control sequences out of 15000+200000
  539084 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,67p,545b,1620s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,11n,67p,604b,1620s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Steven.beyer/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Steven.beyer/AppData/Local
 /Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Steven
@@ -1275,7 +1275,7 @@ fonts/cm/cmsy8.pfb><C:/Users/Steven.beyer/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Steven.beyer/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Steven.beyer/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on "Lab 9 - Driving the Robot.pdf" (3 pages, 147546 bytes).
+Output written on "Lab 9 - Driving the Robot.pdf" (3 pages, 144868 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
