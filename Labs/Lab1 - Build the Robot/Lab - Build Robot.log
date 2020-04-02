@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.12)  27 FEB 2020 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6745 64-bit) (preloaded format=pdflatex 2018.7.12)  2 APR 2020 13:43
 entering extended mode
 **"./Lab - Build Robot.tex"
 ("Lab - Build Robot.tex"
@@ -994,40 +994,24 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 "
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (../../arduinoLanguage.tex
-("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\cour
-ier.sty"
-Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
-))
-("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\ls
-tlang1.sty"
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\ls
-tlang1.sty"
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\ls
-tmisc.sty"
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) ("Lab - Build Robot.aux")
 \openout1 = `"Lab - Build Robot.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 20.
+(lastpage)             ! on input line 13.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp
 -pdf.mkii"
@@ -1195,19 +1179,19 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count314
-LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\um
 sa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\um
 sb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 20.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 13.
 
 ("C:\Users\Steven.beyer\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen\ur
 sfs.fd"
@@ -1222,20 +1206,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1{C:/Users/Steven.beyer/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-<1.jpg, id=14, 2023.56pt x 1517.67pt>
+<1.jpg, id=13, 2023.56pt x 1517.67pt>
 File: 1.jpg Graphic file (type jpg)
 <use 1.jpg>
-Package pdftex.def Info: 1.jpg  used on input line 81.
+Package pdftex.def Info: 1.jpg  used on input line 73.
 (pdftex.def)             Requested size: 352.31624pt x 264.22992pt.
-<2.jpg, id=15, 1245.65375pt x 478.78876pt>
+<2.jpg, id=14, 1245.65375pt x 478.78876pt>
 File: 2.jpg Graphic file (type jpg)
 <use 2.jpg>
-Package pdftex.def Info: 2.jpg  used on input line 89.
+Package pdftex.def Info: 2.jpg  used on input line 81.
 (pdftex.def)             Requested size: 352.31624pt x 135.4188pt.
-<3.jpg, id=16, 2023.56pt x 1517.67pt>
+<3.jpg, id=15, 2023.56pt x 1517.67pt>
 File: 3.jpg Graphic file (type jpg)
 <use 3.jpg>
-Package pdftex.def Info: 3.jpg  used on input line 101.
+Package pdftex.def Info: 3.jpg  used on input line 93.
 (pdftex.def)             Requested size: 352.31624pt x 264.22992pt.
 
 
@@ -1244,58 +1228,60 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2 <./1.jpg> <./2.jpg>]
-<4.jpg, id=20, 2023.56pt x 1517.67pt>
+[2
+
+ <./1.jpg> <./2.jpg>]
+<4.jpg, id=19, 2023.56pt x 1517.67pt>
 File: 4.jpg Graphic file (type jpg)
 <use 4.jpg>
-Package pdftex.def Info: 4.jpg  used on input line 112.
+Package pdftex.def Info: 4.jpg  used on input line 104.
 (pdftex.def)             Requested size: 281.85585pt x 211.38394pt.
  [3 <./3.jpg> <./4.jpg>]
 <5.jpg, id=24, 2023.56pt x 1517.67pt>
 File: 5.jpg Graphic file (type jpg)
 <use 5.jpg>
-Package pdftex.def Info: 5.jpg  used on input line 119.
+Package pdftex.def Info: 5.jpg  used on input line 111.
 (pdftex.def)             Requested size: 352.31624pt x 264.22992pt.
 <6.jpg, id=25, 299.2635pt x 200.7135pt>
 File: 6.jpg Graphic file (type jpg)
 <use 6.jpg>
-Package pdftex.def Info: 6.jpg  used on input line 126.
+Package pdftex.def Info: 6.jpg  used on input line 118.
 (pdftex.def)             Requested size: 375.80542pt x 252.0581pt.
 <7.jpg, id=26, 1515.6625pt x 1359.0775pt>
 File: 7.jpg Graphic file (type jpg)
 <use 7.jpg>
-Package pdftex.def Info: 7.jpg  used on input line 133.
+Package pdftex.def Info: 7.jpg  used on input line 125.
 (pdftex.def)             Requested size: 234.87749pt x 210.59262pt.
  [4 <./5.jpg> <./6.jpg>]
 <8.jpg, id=31, 1268.74pt x 1662.21pt>
 File: 8.jpg Graphic file (type jpg)
 <use 8.jpg>
-Package pdftex.def Info: 8.jpg  used on input line 147.
+Package pdftex.def Info: 8.jpg  used on input line 139.
 (pdftex.def)             Requested size: 211.3883pt x 276.94131pt.
 <9.jpg, id=32, 1332.98pt x 1324.95pt>
 File: 9.jpg Graphic file (type jpg)
 <use 9.jpg>
-Package pdftex.def Info: 9.jpg  used on input line 158.
+Package pdftex.def Info: 9.jpg  used on input line 150.
 (pdftex.def)             Requested size: 211.3883pt x 210.09592pt.
 
 [5 <./7.jpg> <./8.jpg>]
 <10.jpg, id=36, 1110.1475pt x 1313.90875pt>
 File: 10.jpg Graphic file (type jpg)
 <use 10.jpg>
-Package pdftex.def Info: 10.jpg  used on input line 165.
+Package pdftex.def Info: 10.jpg  used on input line 157.
 (pdftex.def)             Requested size: 211.3883pt x 250.18657pt.
  [6 <./9.jpg> <./10.jpg>]
 
 AED: lastpage setting LastPage
 ("Lab - Build Robot.aux") ) 
 Here is how much of TeX's memory you used:
- 34156 strings out of 492973
- 761872 string characters out of 3123591
- 877342 words of memory out of 3000000
- 37599 multiletter control sequences out of 15000+200000
+ 34088 strings out of 492973
+ 759978 string characters out of 3123591
+ 863385 words of memory out of 3000000
+ 37546 multiletter control sequences out of 15000+200000
  537499 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,67p,524b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,11n,67p,445b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Steven.beyer/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Steven.beyer/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/St
@@ -1306,7 +1292,7 @@ lic/amsfonts/cm/cmr10.pfb><C:/Users/Steven.beyer/AppData/Local/Programs/MiKTeX
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Steve
 n.beyer/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10
 .pfb>
-Output written on "Lab - Build Robot.pdf" (6 pages, 3589263 bytes).
+Output written on "Lab - Build Robot.pdf" (6 pages, 3586551 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
