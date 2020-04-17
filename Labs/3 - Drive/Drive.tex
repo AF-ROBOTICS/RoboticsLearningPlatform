@@ -1,0 +1,138 @@
+\documentclass{handout}
+
+%\SetInstructor{Capt Steven Beyer}
+\SetCourseTitle{ECE210: Introduction to Electrical and Computer Engineering}
+%\SetSemester{Spring 2019}
+\SetHandoutTitle{Driving the BeyerBot}
+
+%\ShowAllBlanks
+
+\usepackage[obeyspaces]{url}
+\input{../arduinoLanguage.tex}
+
+%\showsoln \setsolncolor{red}
+
+\lstset { %
+	language=Arduino,
+	frame=none,
+	basicstyle=\footnotesize,
+}
+
+\begin{document}
+	%	\footnotetext{Examples are abstracted from Tutorials Point, "Arduino", 2019, accessed Feb 18, 2019. [Online]. Available: https://www.tutorialspoint.com/arduino/index.htm}
+	\maketitle
+
+	\section{Objectives.} 
+	\begin{enumerate}
+		\item Become familiar with the DFECBot driving functions.
+		\item Utilize the Arduino to drive the robot in multiple patterns.
+	\end{enumerate}
+	
+	\section{Materials.}
+	\begin{enumerate}
+		\item DFECBot
+		\item USB Programming Cable
+	\end{enumerate}
+	
+	\newpage
+	\clearpage
+	\pagebreak
+	
+	\section{Introduction.}
+	
+	\subsection{Source Files}
+	Browse to \path{K:\DF\DFEC\ECE210\Labs\Lab 9 - Driving the Robot} and copy the \path{robot_drive} folder to your computer. Open \path{robot_drive.ino}. 
+	
+	
+	Use Notepad++ to open the \textit{Motor.h} file that you previously saved here: \path{Program Files (x86)/Arduino/libraries/Motor/Motor.h}. The \textit{.h} file is a header file used within the \textit{.ino}  Arduino sketch. Take a look at \path{Motor.h} first.
+	
+	\subsubsection{Motor.h}
+	This file uses four pins on the Arduino to communicate with the TB6612FNG Motor Driver chip on your PCB board. These pins are used as follows:
+	
+	\begin{description}
+		\item[Pin 4 (L\_DIR)--] Connects to the \textit{APS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the left motor.
+		
+		\item[Pin 5 (L\_PWM) --] Connects to the \textit{APS\_MA} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of left motor.
+		
+		\item[Pin 6 (R\_PWM)--] Connects to the \textit{BPS\_MB} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of right motor.
+		\item[Pin 7 (R\_DIR)--] Connects to the \textit{BPS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the right motor.
+	\end{description}
+	
+	In the \textit{Motor\_Init} function, all four of these pins are set to \textit{OUTPUT} pins. 
+	
+	The \path{Motor.h} file provides basic drive functions like \textit{Motor\_Forward(leftDuty, rightDuty)} and \textit{Motor\_Stop()}. All movement functions (\textit{Motor\_Forward}, \textit{Motor\_Left}, etc) will run until the next movement function is provided. For example, to get the robot to move forward for 5 seconds then stop, the \textit{Motor\_Forward(leftDuty, rightDuty)} function should be called followed by a 5 second delay and the \textit{Moto\_Stop()} function.
+	
+	\subsubsection{robot\_drive.ino}
+	This is the main file to place drive code. This file is reliant on the \path{Motor.h} header file. The \path{robot\_drive.ino} file provides an example to move the robot forward, turn left, turn right, drive backwards, and then stop. This code will repeat continuously until the DFECBot is powered off (See below code). Delete this example code before submission.
+	
+	\begin{lstlisting}
+	/* 
+	*  Code to make the DFECBot go forward, turn left, turn right, go 
+	*  backward and stop. This code will repeat continuously 
+	*  until the DFECBot is powered off
+	*/
+	Motor_Forward(leftDuty, rightDuty);
+	delay(2000);
+	Motor_Left(leftDuty, rightDuty);
+	delay(2000);
+	Motor_Right(leftDuty, rightDuty);
+	delay(2000);
+	Motor_Backward(leftDuty, rightDuty);
+	delay(2000);
+	Motor_Stop();
+	delay(2000);
+	\end{lstlisting}
+	
+	\newpage
+	\clearpage
+	\pagebreak
+	
+	\section{Procedure}
+	\textbf{Use the example code provided and the \path{Motor.h} to code the DFECBot to drive the following patterns. The DFECBot should pause for 2 seconds between each pattern.}
+		
+	\begin{enumerate}
+		\item Drive the DFECBot forward.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+		\end{enumerate}
+		\item Drive the DFECBot forward and reverse.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+			\item Pause for 1 second.
+			\item Drive in reverse for 5 seconds to return to the starting position.
+		\end{enumerate}
+		\item Drive the DFECBot forward, turn around, and return to start.
+		\begin{enumerate}
+			\item Drive forward for 5 seconds.
+			\item Pause for 1 second.
+			\item Turn around.
+			\item Drive back to start and original orientation.
+		\end{enumerate}
+		\item Drive the DFECBot in a square.
+		\begin{enumerate}
+			\item Drive in a square making right turns.
+			\item Return to the starting location and position.
+			\item Drive in a square making left turns.
+			\item Return to the starting location and position.
+		\end{enumerate}
+		\item Drive the DFECBot in a small circle.
+		\begin{enumerate}
+			\item Drive in a clockwise circle keeping one wheel fixed.
+			\item Drive in a counter clockwise circle keeping one wheel fixed.
+		\end{enumerate}
+		\item Drive the DFECBot in a large circle.
+		\begin{enumerate}
+			\item Drive in a clockwise circle with an approximate diameter of 2 feet.
+			\item Drive in a counter clockwise circle with an approximate diameter of 2 feet.
+		\end{enumerate}
+		\item Drive the DFECBot in a pattern of choice.
+		\begin{enumerate}
+			\item Drive in a pattern of your choosing.
+		\end{enumerate} 
+	
+
+\end{enumerate}
+
+
+	
+\end{document}
