@@ -93,12 +93,11 @@
 	
 	\subsection{Code:}
 	\begin{enumerate}
-		\item Browse to Cadet Data and copy the Arduino sketch folder \textit{robot\_motors}: 
-		\\ ``K:$\backslash$DF$\backslash$DFEC$\backslash$ECE210$\backslash$Labs$\backslash$Lab 8b - Robot Motors"
-		\item Open the \textit{robot\_motors} sketch.
-		\item In the \textit{loop()} function, update the five calls to \textit{robot.Motor\_Forward()} to drive the motor at the designated duty cycles. 
+		\item Copy the Arduino sketch fold \path{robot_motors} from \textbf{Teams} (\path{Labs/robot_motor})
+		\item Open the \path{robot_motors} sketch.
+		\item In the \textit{loop()} function, update the five calls to \textit{Motor\_Forward()} to drive the motor at the designated duty cycles. 
 		\begin{itemize}
-			\item The example provided, \textit{robot.Motor\_Forward(50, 50);}, will drive both the left and right motors at (50/255)\% of the duty cycle. This is equivalent to a duty cycle of about 20\%.
+			\item The example provided, \textit{Motor\_Forward(50, 50);}, will drive both the left and right motors at (50/255)\% of the duty cycle. This is equivalent to a duty cycle of about 20\%.
 		\end{itemize}
 		\item Upload the sketch to the robot. Both motors of the robot should now operate at 6 different speeds (from 20\% duty cycle up to 100\% and back down to 15\%).
 	\end{enumerate}
@@ -170,7 +169,7 @@
 \pagebreak
 
 
-\item Comment out all of the code within \textbf{\textit{loop()}} except for the portion that runs the motors at 75\% duty cycle (\textit{robot.Motor\_Forward(191,191)}; \textit{delay(2000);}) and answer the following questions:
+\item Comment out all of the code within \textbf{\textit{loop()}} except for the portion that runs the motors at 75\% duty cycle (\textit{Motor\_Forward(191,191)}; \textit{delay(2000);}) and answer the following questions:
 \begin{enumerate}
 	\item What is the frequency of the signal? \soln{.3in}{980 Hz}
 	\item What is the period of the signal? \soln{.3in}{}
