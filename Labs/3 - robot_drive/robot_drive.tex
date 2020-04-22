@@ -33,10 +33,7 @@
 		\item DFECBot
 		\item USB Programming Cable
 	\end{enumerate}
-	
-	\newpage
-	\clearpage
-	\pagebreak
+
 	
 	\section{Introduction.}
 	
@@ -50,12 +47,14 @@
 	This file uses four pins on the Arduino to communicate with the TB6612FNG Motor Driver chip on your PCB board. These pins are used as follows:
 	
 	\begin{description}
-		\item[Pin 4 (L\_DIR)--] Connects to the \textit{APS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the left motor.
+		\item[Pin 2 (L\_DIR)--] Connects to the \textit{APS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the left motor.
 		
-		\item[Pin 5 (L\_PWM) --] Connects to the \textit{APS\_MA} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of left motor.
+		\item[Pin 3 (L\_PWM) --] Connects to the \textit{APS\_MA} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of left motor.
 		
-		\item[Pin 6 (R\_PWM)--] Connects to the \textit{BPS\_MB} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of right motor.
-		\item[Pin 7 (R\_DIR)--] Connects to the \textit{BPS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the right motor.
+		\item[Pin 4 (R\_DIR)--] Connects to the \textit{BPS\_CTRL} pin on the PCB board. This pin sends a signal to the motor driver to control the direction of the right motor.
+		
+		\item[Pin 5 (R\_PWM)--] Connects to the \textit{BPS\_MB} pin on the PCB board. This pin sends a Pulse Width Modulation (PWM) signal to the motor driver to control the speed of right motor.
+		
 	\end{description}
 	
 	In the \textit{Motor\_Init} function, all four of these pins are set to \textit{OUTPUT} pins. 
@@ -65,6 +64,9 @@
 	\subsubsection{robot\_drive.ino}
 	This is the main file to place drive code. This file is reliant on the \path{Motor.h} header file. The \path{robot\_drive.ino} file provides an example to move the robot forward, turn left, turn right, drive backwards, and then stop. This code will repeat continuously until the DFECBot is powered off (See below code). Delete this example code before submission.
 	
+	\newpage
+	\clearpage
+	\pagebreak
 	\begin{lstlisting}
 	/* 
 	*  Code to make the DFECBot go forward, turn left, turn right, go 
@@ -82,11 +84,7 @@
 	Motor_Stop();
 	delay(2000);
 	\end{lstlisting}
-	
-	\newpage
-	\clearpage
-	\pagebreak
-	
+
 	\section{Procedure}
 	\textbf{Use the example code provided and the \path{Motor.h} to code the DFECBot to drive the following patterns. The DFECBot should pause for 2 seconds between each pattern.}
 		

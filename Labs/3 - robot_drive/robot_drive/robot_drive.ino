@@ -23,8 +23,8 @@
 #include "Motor.h"
 
 // sets the speed of a wheel 0 - 255
-int UL = 100;
-int UR = 100;
+const int UL = 100;
+const int UR = 100;
 
 // adjust turn delay to get closer to 90 deg turn
 const int turnDelay = 500;

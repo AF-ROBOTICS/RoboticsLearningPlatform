@@ -4,10 +4,11 @@
  *  Created: 6 Mar 2019
  *  Description: Header file that provides functions to drive the 
  *    DFECBot.
- *    R_PWM  = 3;  // PWM at 490 Hz
- *    R_DIR  = 4;  // direction a
- *    L_DIR  = 8;  // direction b
- *    L_PWM  = 9;  // PWM at 490 Hz
+ *		L_DIR  = 2;  // direction b
+ *		L_PWM  = 3;  // PWM at 490 Hz
+ *		R_DIR  = 4;  // direction a
+ *		R_PWM  = 5;  // PWM at 980 Hz
+
  *  
  *  Required Files:
  *    Libraries : none
@@ -16,10 +17,10 @@
  */
 
 
-const int L_DIR  = 4;  // direction b
-const int L_PWM  = 5;  // PWM at 490 Hz
-const int R_PWM  = 6;  // PWM at 490 Hz
-const int R_DIR  = 7;  // direction a
+const int L_DIR  = 2;  // direction b
+const int L_PWM  = 3;  // PWM at 490 Hz
+const int R_DIR  = 4;  // direction a
+const int R_PWM  = 5;  // PWM at 980 Hz
 
 // ------------Motor_Init------------
 // Initialize GPIO pins
