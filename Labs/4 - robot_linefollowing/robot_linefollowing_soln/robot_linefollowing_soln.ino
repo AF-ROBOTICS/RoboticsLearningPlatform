@@ -1,136 +1,84 @@
 /* 
  *  Filename: robot_linefollowing.ino
  *  Author: Capt Steven Beyer
- *  Created: 8 Mar 2019
+ *  Created: 23 April 2020
  *  Description: Example Arduino Sketch that prints 
- *    values outputted by the DFECBot's left QRE1113 Line Sensor.
+ *    values from the DFECBot's QTR-8RC line sensor array.
+ *  
+ *  Source: Adapted from QTRRCExample.ino and QTRSensors.h
+ *    https://github.com/pololu/qtr-sensors-arduino
  *    
  *  Assignment:
- *    1) Print the values outputted by the DFECBot's center and right 
- *      QRE1113 Line Sensors to the serial monitor.
- *    3) Observe how these values change if the sensor is over a solid 
- *      black line.
- *    2) Program the DFECBot to follow a line using the 3 QRE1113 Line
- *      Sensors.
+ *    1) Use a ruler to confirm the accuracy of the line sensor 
+ *    read function
+ *    2) Program the DFECBot to follow a line
+ *    Note: Remove all print statements/delays when running your line following
  *  
  *  Required Files:
  *    Libraries : none
  *    Packages  : none
- *    Files     : TB6612FNG.h, drive.h
+ *    Files     : Motor.h, QTR-8RC.h
  */
-#include "TB6612FNG.h"
-#include "drive.h"
- 
-// pin used by the left line sensor
-const int lineR1 = 2;
-const int lineR2 = 5;
-const int lineC = 7;
-const int lineL2 = 8;
-const int lineL1 = 10;
 
-const int speed = 150;
+#include "QTR-8RC.h"
+#include "Motor.h"
 
-boolean hardLeft = false;
-boolean hardRight = false;
-boolean offTrack = false;
+/******************** Sensor variables *****************/
+QTRSensors qtr;
 
-Robot robot;
+const uint8_t SensorCount = 8;
+uint16_t sensorValues[SensorCount];
 
-void setup() {
-  robot.init();
-  Serial.begin(9600);
-}
+/******************** Controller variables *****************/
+#define OFFSET 25     // dist from IR sensor to center of robot in mm
+#define DESIRED 100   // desired dist from wall
+#define PWMNOMINAL 100
+#define SWING 20
+#define PWMMIN (PWMNOMINAL-SWING)
+#define PWMMAX (PWMNOMINAL+SWING)
 
-void loop() {
-  // read and print value ouputted by DFECBot's sensors
-  int line_R1 = readQD(lineR1);
-  int line_R2 = readQD(lineR2);
-  int line_C = readQD(lineC);
-  int line_L2 = readQD(lineL2);
-  int line_L1 = readQD(lineL1);
+// Proportional gain constant
+const int Kp = 3;
 
-  // center line sensor detects line
-  if (line_C < 200 and line_R1 > 200 and line_R2 >200 and line_L1 > 200 and line_L2 >200){
-    robot.forward(speed);
-    hardLeft = false;
-    hardRight = false;
-    offTrack = false;
-  }
-
-  // slightly off center to the right
-  else if (line_C < 200 and line_R2 < 200){
-    robot.slightSlightRight(speed);
-    hardLeft = false;
-    hardRight = false;
-    offTrack = false;
-  }
-
-  // slightly off center to the left
-  else if (line_C < 200 and line_L2 <200){
-    robot.slightSlightLeft(speed);
-    hardLeft = false;
-    hardRight = false;
-    offTrack = false;
-  }
-
-  // right of center
-  else if (line_R2 < 200 and line_R1 < 200){
-    robot.slightRight(speed);
-    hardLeft = false;
-    hardRight = false;
-    offTrack = false;
-  }
-
-  // left of center
-  else if (line_L2 < 200 and line_L1 < 200){
-    robot.slightLeft(speed);
-    hardLeft = false;
-    hardRight = false;
-    offTrack = false;
-  }
-
-  // far right of center
-  else if (line_R1 < 200 and line_R2 > 200){
-    if(!offTrack){
-      robot.hardRight(speed);
-      hardRight = true;
-    }
-  }
-
-  // far left of center
-  else if (line_L1 < 200 and line_L2 > 200){
-    if(!offTrack){
-      robot.hardLeft(speed);
-      hardLeft = true;
-    }
-  }
+void setup()
+{
+  Motor_Init();
   
-  // no line detected
-  else{
-    if (hardLeft){
-      robot.slightLeft(speed);
-    }
-    else if (hardRight){
-      robot.slightRight(speed);
-    }
-    else{
-      robot.forward(speed);
-    }
-    offTrack = true;
-  }
+  // configure the sensors
+  qtr.setTypeRC();
+  qtr.setSensorPins((const uint8_t[]){6, 7, 8, 9, 10, 11, 12, 13}, SensorCount);
+  //qtr.setEmitterPin(5);
 
-  //delay(1000);
+  delay(500);
+
+  // 2.5 ms RC read timeout (default) * 10 reads per calibrate() call
+  // = ~25 ms per calibrate() call.
+  // Call calibrate() 400 times to make calibration take about 10 seconds.
+  for (uint16_t i = 0; i < 400; i++)
+  {
+    qtr.calibrate();
+  }
 }
 
-int readQD(int line_pin){
-  pinMode(line_pin,OUTPUT);
-  digitalWrite(line_pin,HIGH);
-  delayMicroseconds(10);
-  pinMode(line_pin,INPUT);
+void loop()
+{
+  int pwmR, pwmL;
+  
+  // read calibrated sensor values and obtain a measure of the line position
+  // with a position of 0.1 mm relative to the center of the line 
+  // -33.2 mm to 33.2 mm
+  int16_t position = qtr.readLineBlack(sensorValues);
 
-  long time=micros();
+  // Proportional controller
+  pwmR = PWMNOMINAL - Kp*position;
+  pwmL = PWMNOMINAL + Kp*position;
 
-  while(digitalRead(line_pin)==HIGH&&micros()-time<3000);
-  int diff=micros()-time;
-  return diff;
+  // Bounds checking
+  if(pwmR < PWMMIN) pwmR = PWMMIN;
+  if(pwmR > PWMMAX) pwmR = PWMMAX;
+  if(pwmL < PWMMIN) pwmL = PWMMIN;
+  if(pwmL > PWMMAX) pwmL = PWMMAX;
+  
+  Motor_Forward(pwmL, pwmR);
+  
 }

@@ -1,11 +1,11 @@
 /* 
- *  Filename: robot_obstacleavoidance.ino
+ *  Filename: robot_wallfollowing.ino
  *  Author: Capt Steven Beyer
  *  Created: 21 April 2020
  *  Description: Example Arduino Sketch that prints 
- *    values from the DFECBot's left IR Sensor.
+ *    values from the DFECBot's right IR Sensor.
  *  
- *  Source: Based off the SharpDistSensorArray.ino
+ *  Source: Adapted from SharpDistSensorArray.ino
  *    https://github.com/DrGFreeman/SharpDistSensor
  *    MIT License
  *    Copyright (c) 2018 Julien de la Bruere-Terreault <drgfreeman@tuta.io>
@@ -18,14 +18,15 @@
  *    
  *  Assignment:
  *    1) Print the values from the DFECBot's center and 
- *      right GP2Y0A51SK0F Analog Distance Sensor to the serial 
+ *      left GP2Y0A51SK0F Analog Distance Sensor to the serial 
  *      monitor.
- *    3) Use a ruler to confirm the accuracy of each distance 
+ *    2) Use a ruler to confirm the accuracy of each distance 
  *      sensor - the sensor should be fairly accurate between 
  *      3 cm and 12 cm.
- *    2) Program the DFECBot to detect  an object within 4 cm 
- *      in front of, to the left of, and to the right of the 
- *      DFECBott using the three Distance Sensors.
+ *    3) Program the DFECBot to follow wall on right.
+ *    4) Program the DFECBot to follow wall on left.
+ *    5) Program the DFECBot to stay between two walls.
+ *    Note: Remove all print statements/delays when running your wall following
  *  
  *  Required Files:
  *    Libraries : none
@@ -36,40 +37,84 @@
 #include <SharpDistSensor.h>
 #include "Motor.h"
 
-// Number of sensors used on the bot
-const byte numSensors = 1;
-
+/******************** Sensor variables *****************/
 // Analog pins used by the sensors
-const byte irL = A2;
+const byte irR = A0;
+
+
 
 // Window size of the median filter (odd number, 1 = no filtering)
 const byte medianFilterWindowSize = 5;
 
-// Define the array of SharpDistSensor objects
-SharpDistSensor sensorArray[] ={
-  SharpDistSensor(irL, medianFilterWindowSize)
-  // Add as many sensors as required
-};
+// Create an object instance of the SharpDistSensor class for each sensor
+SharpDistSensor sensorR(irR, medianFilterWindowSize);
 
-// Define an array of integers that will store the measured distances
-uint16_t distArray[numSensors];
+
+
+/******************** Controller variables *****************/
+#define OFFSET 25       // dist from IR sensor to center of robot in mm
+#define DESIRED 100     // desired dist from wall
+#define PWMNOMINAL 100  // nominal speed
+#define SWING 20        // limits on speed
+#define PWMMIN (PWMNOMINAL-SWING)
+#define PWMMAX (PWMNOMINAL+SWING)
+
+// Porportional gain constant
+const int Kp = 3;
+
+// choose between modes:
+//  0 - follow wall on right
+//  1 - follow wall on left
+//  2 - follow walls on both sides
+const int Mode = 0;
 
 void setup() {
   // Initialize the motors
   Motor_Init();
   
-  // Set parameters for each sensor in array
-  for (int i = 0; i < numSensors; i++){
-    sensorArray[i].setModel(SharpDistSensor::GP2Y0A51SK0F_5V_DS);
-  }
-  Serial.begin(9600);
+  // Set parameters for each sensor
+  sensorR.setModel(SharpDistSensor::GP2Y0A51SK0F_5V_DS);
+
+  
 }
 
 void loop() {
-  // Read distance (in mm) for each sensor into an array of distances and print
-  for (int i = 0; i < numSensors; i++){
-    distArray[i] = sensorArray[i].getDist();
-    Serial.println(distArray[i]);
-  }
+  // variables for proportional controller
+  int error, setPoint, pwmR, pwmL;
+  
+  // Read distance (in mm) for each sensor
+  unsigned int distR = sensorR.getDist() + OFFSET;
+  Serial.print("Right: "); Serial.println(distR);
+
+
+  
   delay(50);
+
+  // follow wall on right
+  if(Mode == 0){
+
+  }
+
+  // follow wall on left
+  if(Mode == 1){
+
+  }
+
+  // follow walls on both sides
+  if(Mode == 2){
+
+  }
+  
+  // Proportional controller
+
+
+  // Bounds checking
+  if(pwmR < PWMMIN) pwmR = PWMMIN;
+  if(pwmR > PWMMAX) pwmR = PWMMAX;
+  if(pwmL < PWMMIN) pwmL = PWMMIN;
+  if(pwmL > PWMMAX) pwmL = PWMMAX;
+
+  // Drive forward
+
+  
 }

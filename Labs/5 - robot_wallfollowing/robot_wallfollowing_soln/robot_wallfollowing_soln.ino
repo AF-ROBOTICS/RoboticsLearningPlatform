@@ -1,11 +1,11 @@
 /* 
- *  Filename: robot_obstacleavoidance.ino
+ *  Filename: robot_wallfollowing.ino
  *  Author: Capt Steven Beyer
  *  Created: 21 April 2020
  *  Description: Example Arduino Sketch that prints 
- *    values from the DFECBot's left IR Sensor.
+ *    values from the DFECBot's right IR Sensor.
  *  
- *  Source: Based off the SharpDistSensorArray.ino
+ *  Source: Adapted from SharpDistSensorArray.ino
  *    https://github.com/DrGFreeman/SharpDistSensor
  *    MIT License
  *    Copyright (c) 2018 Julien de la Bruere-Terreault <drgfreeman@tuta.io>
@@ -18,14 +18,15 @@
  *    
  *  Assignment:
  *    1) Print the values from the DFECBot's center and 
- *      right GP2Y0A51SK0F Analog Distance Sensor to the serial 
+ *      left GP2Y0A51SK0F Analog Distance Sensor to the serial 
  *      monitor.
- *    3) Use a ruler to confirm the accuracy of each distance 
+ *    2) Use a ruler to confirm the accuracy of each distance 
  *      sensor - the sensor should be fairly accurate between 
  *      3 cm and 12 cm.
- *    2) Program the DFECBot to detect  an object within 4 cm 
- *      in front of, to the left of, and to the right of the 
- *      DFECBott using the three Distance Sensors.
+ *    3) Program the DFECBot to follow wall on right.
+ *    4) Program the DFECBot to follow wall on left.
+ *    5) Program the DFECBot to stay between two walls.
+ *    Note: Remove all print statements/delays when running your wall following
  *  
  *  Required Files:
  *    Libraries : none
@@ -55,15 +56,13 @@ SharpDistSensor sensorL(irL, medianFilterWindowSize);
 #define OFFSET 25     // dist from IR sensor to center of robot in mm
 #define DESIRED 100   // desired dist from wall
 #define PWMNOMINAL 100
-#define SWING 15
+#define SWING 20
 #define PWMMIN (PWMNOMINAL-SWING)
 #define PWMMAX (PWMNOMINAL+SWING)
 
-// Controller variables
-int SetPoint = 100;
-int Error;
-const int Kp = 2;
-int UR, UL;
+// Proportional gain constant
+const int Kp = 3;
+
 
 // choose between modes:
 //  0 - follow wall on right
@@ -82,42 +81,46 @@ void setup() {
 }
 
 void loop() {
+  int error, setPoint, pwmR, pwmL;
+  
   // Read distance (in mm) for each sensor
-  unsigned int distR = sensorR.getDist() + offset;
-  unsigned int distC = sensorC.getDist() + offset;
-  unsigned int distL = sensorL.getDist() + offset;
+  unsigned int distR = sensorR.getDist() + OFFSET;
+  unsigned int distC = sensorC.getDist() + OFFSET;
+  unsigned int distL = sensorL.getDist() + OFFSET;
 
   // follow wall on right
   if(Mode == 0){
-    Error = DESIRED - distR;
+    error = DESIRED - distR;
   }
 
   // follow wall on left
   if(Mode == 1){
-    Error = distL - DESIRED;
+    error = distL - DESIRED;
   }
 
   // follow walls on both sides
   if(Mode == 2){
     if((distL > DESIRED) && (distR > DESIRED)){
-      SetPoint = (distL + distR)/2;
+      setPoint = (distL + distR)/2;
     }else{
-      SetPoint = DESIRED;
+      setPoint = DESIRED;
     }
     if(distL < distR){
-      Error = distL - SetPoint;
+      error = distL - setPoint;
     }else{
-      Error = SetPoint - distR;
+      error = setPoint - distR;
     }
   }
   
   // Proportional controller
-  UR = PWMNOMINAL+Kp*Error;
-  UL = PWMNOMINAL-Kp*Error;
-  if(UR < PWMMIN) UR = PWMMIN;
-  if(UR > PWMMAX) UR = PWMMAX;
-  if(UL < PWMMIN) UL = PWMMIN;
-  if(UL > PWMMAX) UL = PWMMAX;
+  pwmR = PWMNOMINAL+Kp*error;
+  pwmL = PWMNOMINAL-Kp*error;
+
+  // Bounds checking
+  if(pwmR < PWMMIN) pwmR = PWMMIN;
+  if(pwmR > PWMMAX) pwmR = PWMMAX;
+  if(pwmL < PWMMIN) pwmL = PWMMIN;
+  if(pwmL > PWMMAX) pwmL = PWMMAX;
   
-  Motor_Forward(UL, UR);
+  Motor_Forward(pwmL, pwmR);
 }
