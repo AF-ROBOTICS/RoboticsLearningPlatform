@@ -75,7 +75,10 @@
 			\includegraphics[width=.75\textwidth]{1.jpg}
 		\end{figure}
 	
-		\item Solder the 1 x 11 90$^o$ header to the reflectance sensor array with the bent header opposite of the line sensors
+		\item Solder the 1 x 11 90$^o$ header to the reflectance sensor array with the header opposite of the line sensors
+		
+		\item Solder a jumper across the $3.3\ V$ bypass.
+		
 		\item Secure the reflectance sensor array to the line sensor mount using 2 - \#2-56 x 1/4" bolts and nuts.
 		
 		\begin{figure} [H]
@@ -123,7 +126,7 @@
 			\includegraphics[width=.75\textwidth]{5.jpg}
 		\end{figure}
 		
-		\item \textbf{Testing PCB:} Wire the motors, Arduino, battery, and switch to the PCB as shown in Figure. Download the \path{robot_pcb} folder from \textbf{Teams} (\path{Labs/robot_pcb}). Create the following folder:  \\\path{Documents/Arduino/libraries/Motor} and move the \textit{Motor.h} file into it. Open the \path{robot_pcb.ino} file. Compile and upload to the Arduino. If working correctly, the tires should go forward for 1 second, then left for 1 second, then right for 1 second, then backwards for 1 second. Disconnect the PCB from the Arduino.
+		\item \textbf{Testing PCB:} Wire the motors, Arduino, battery, and switch to the PCB as shown in Figure. Download the \path{robot_pcb} folder from \textbf{Teams} (\path{Labs/robot_pcb}). Copy the Motor library from \textbf{Teams} (\path{Labs/Custom Libraries/Motor}) to your documents folder: \\\path{Documents/Arduino/libraries/} Open the \path{robot_pcb.ino} file. Compile and upload to the Arduino. If working correctly, the tires should go forward for 1 second, then left for 1 second, then right for 1 second, then backwards for 1 second. Disconnect the PCB from the Arduino.
 		
 		\begin{figure} [H]
 			\centering
