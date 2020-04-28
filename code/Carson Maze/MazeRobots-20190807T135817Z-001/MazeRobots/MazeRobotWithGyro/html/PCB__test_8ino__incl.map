@@ -1,7 +1,0 @@
-<map id="PCB_test/PCB_test/PCB_test.ino" name="PCB_test/PCB_test/PCB_test.ino">
-<area shape="rect" id="node2" href="$TB6612FNG_8h.html" title="Contains a low&#45;level control interface for the motor driver chip. " alt="" coords="5,169,112,196"/>
-<area shape="rect" id="node3" href="$drive_8h.html" title="Contains mid&#45;level drive commands for the robot, such as driving forward and turning. " alt="" coords="323,95,384,121"/>
-<area shape="rect" id="node10" href="$IR_8h.html" title="Contains the IRSensor class, for making IR sensor use easier. " alt="" coords="409,95,455,121"/>
-<area shape="rect" id="node11" href="$graph_8h.html" title="Contains the structure of the maze and functions to alter the robot&#39;s relation to the grid..." alt="" coords="598,95,663,121"/>
-<area shape="rect" id="node5" href="$util_8h.html" title="Contains a variety of miscellaneous math functions to allow for cleaner code. " alt="" coords="725,169,776,196"/>
-</map>

@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name kevin)(type KiCad)(uri "$(KIPRJMOD)/motor_driver")(options "")(descr ""))
-  (lib (name bob)(type KiCad)(uri "$(KIPRJMOD)/kevin.pretty")(options "")(descr ""))
-)
