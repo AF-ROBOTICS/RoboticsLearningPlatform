@@ -1,20 +1,18 @@
 # DFEC Robot
 
-Robot created for USAFA DFEC to teach cadets various Electrical and Computer Engineering concepts and techniques.
-
-## Example Software
-
-The example SW is written for the Arduino and is found in `code` as an example.
+Robot created for USAFA DFEC to teach cadets Electrical and Computer Engineering concepts and techniques.
 
 ## Hardware
 
 Frame developed using [AutoDesk Fusion 360](https://www.autodesk.com/products/fusion-360/overview)
 
-[Base plate](3D_Printing/BaseLayer.stl)
+[Base layer](3D_Printing/stl/BaseLayer.stl)
 
-[Motor mounts](3D_Printing/MotorLayer.stl)
+[Motor layer](3D_Printing/stl/MotorLayer.stl)
 
-[Layer](3D_Printing/Layer.stl)
+[Arduino layer](3D_Printing/stl/ArduinoLayer.stl)
+
+[Additional Layer](3D_Printing/stl/Layer.stl)
 
 ## Motors
 
