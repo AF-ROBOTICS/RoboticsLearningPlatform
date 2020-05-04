@@ -62,11 +62,11 @@ Frame developed using [AutoDesk Fusion 360](https://www.autodesk.com/products/fu
 | :--------------------------------------------: | :--------------------------------------------------: |
 | <img src="pics/layer.png" style="zoom:67%;" /> | <img src="pics/layerbottom.png" style="zoom:67%;" /> |
 
-#### [Wheels](3D_Printing/stl/rims.stl)
+#### Wheels
 
-|                      Rims                      |                     Tires                      |
-| :--------------------------------------------: | :--------------------------------------------: |
-| <img src="pics/wheel.png" style="zoom:70%;" /> | <img src="pics/tires.png" style="zoom:70%;" /> |
+|        [Rims](3D_Printing/stl/rim.STL)         | [Tires](3D_Printing/stl/Ninja_Flex_Tire - left.STL) |
+| :--------------------------------------------: | :-------------------------------------------------: |
+| <img src="pics/wheel.png" style="zoom:70%;" /> |   <img src="pics/tires.png" style="zoom:70%;" />    |
 
 
 
