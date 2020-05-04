@@ -8,7 +8,7 @@ Six labs guide the students from soldering the PCB and assembling the robot to u
 
 [Robot PCB](Labs/0_robot_pcb/robot_pcb.pdf) - This lab guides students to solder and test their PCB.
 
-[Robot Build](Labs/1robot_build/robot_build.pdf) - This lab provides instructions to assemble the robot.
+[Robot Build](Labs/1_robot_build/robot_build.pdf) - This lab provides instructions to assemble the robot.
 
 [Robot Motors](Labs/2_robot_motors/robot_motors.pdf) - This lab investigates how the Arduino uses Pulse Width Modulation to drive the robot's motors.
 
