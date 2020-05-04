@@ -30,8 +30,6 @@ const uint8_t SensorCount = 8;
 uint16_t sensorValues[SensorCount];
 
 /******************** Controller variables *****************/
-#define OFFSET 25     // dist from IR sensor to center of robot in mm
-#define DESIRED 100   // desired dist from wall
 #define PWMNOMINAL 100
 #define SWING 20
 #define PWMMIN (PWMNOMINAL-SWING)
@@ -81,6 +79,8 @@ void setup()
 
 void loop()
 {
+  int pwmR, pwmL;
+  
   // read calibrated sensor values and obtain a measure of the line position
   // with a position of 0.1 mm relative to the center of the line 
   // -33.2 mm to 33.2 mm

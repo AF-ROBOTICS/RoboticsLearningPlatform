@@ -53,7 +53,7 @@ SharpDistSensor sensorL(irL, medianFilterWindowSize);
 
 
 /******************** Controller variables *****************/
-#define OFFSET 25     // dist from IR sensor to center of robot in mm
+#define OFFSET 50     // dist from IR sensor to center of robot in mm
 #define DESIRED 100   // desired dist from wall
 #define PWMNOMINAL 100
 #define SWING 20

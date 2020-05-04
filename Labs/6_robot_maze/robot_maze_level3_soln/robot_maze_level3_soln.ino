@@ -1,37 +1,16 @@
 /* 
- *  Filename: robot_wallfollowing.ino
+ *  Filename: Robot Maze Level 3
  *  Author: Capt Steven Beyer
  *  Created: 21 April 2020
- *  Description: Example Arduino Sketch that prints 
- *    values from the DFECBot's right IR Sensor.
- *  
- *  Source: Adapted from SharpDistSensorArray.ino
- *    https://github.com/DrGFreeman/SharpDistSensor
- *    MIT License
- *    Copyright (c) 2018 Julien de la Bruere-Terreault <drgfreeman@tuta.io>
- *    Permission is hereby granted, free of charge, to any person obtaining a copy
- *    of this software and associated documentation files (the "Software"), to deal
- *    in the Software without restriction, including without limitation the rights
- *    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *    copies of the Software, and to permit persons to whom the Software is
- *    furnished to do so, subject to the following conditions:
- *    
- *  Assignment:
- *    1) Print the values from the DFECBot's center and 
- *      left GP2Y0A51SK0F Analog Distance Sensor to the serial 
- *      monitor.
- *    2) Use a ruler to confirm the accuracy of each distance 
- *      sensor - the sensor should be fairly accurate between 
- *      3 cm and 12 cm.
- *    3) Program the DFECBot to follow wall on right.
- *    4) Program the DFECBot to follow wall on left.
- *    5) Program the DFECBot to stay between two walls.
- *    Note: Remove all print statements/delays when running your wall following
+ *  Description: The third level of the maze requires the robot to
+ *    navigate the maze until it reaches the goal in the middle of the maze.
+ *    It does not need to do anything special once it reaches the goal. Reaching
+ *    the goal is enough.
  *  
  *  Required Files:
  *    Libraries : none
  *    Packages  : none
- *    Files     : Motor.h, SharpDistSensor.h
+ *    Files     : Motor.h, SharpDistSensor.h, Classifier.h
  */
 
 #include <SharpDistSensor.h>
@@ -219,6 +198,7 @@ void loop() {
       Turn = 0;
       Motor_Stop();
       NextSquare = 1;
+      Time = 0;
     }
   }
   Time++;

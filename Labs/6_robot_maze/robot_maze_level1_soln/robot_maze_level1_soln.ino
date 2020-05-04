@@ -1,18 +1,9 @@
 /* 
- *  Filename: robot_linefollowing.ino
+ *  Filename: Robot Maze Level 1
  *  Author: Capt Steven Beyer
- *  Created: 23 April 2020
- *  Description: Example Arduino Sketch that prints 
- *    values from the DFECBot's QTR-8RC line sensor array.
- *  
- *  Source: Adapted from QTRRCExample.ino and QTRSensors.h
- *    https://github.com/pololu/qtr-sensors-arduino
- *    
- *  Assignment:
- *    1) Use a ruler to confirm the accuracy of the line sensor 
- *    read function
- *    2) Program the DFECBot to follow a line
- *    Note: Remove all print statements/delays when running your line following
+ *  Created: 4 May 2020
+ *  Description: The first level of the maze requires the robot to 
+ *    follow a white line to the end of the maze.
  *  
  *  Required Files:
  *    Libraries : none
