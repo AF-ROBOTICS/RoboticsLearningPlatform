@@ -6,7 +6,7 @@ The DFEC Robot was created for the Department of Electrical and Computer Enginee
 
 Six labs guide the students from soldering the PCB and assembling the robot to using distance and line sensors to guide the robot through a maze.
 
-[Robot PCB](labs/0_robot_pcb/robot_pcb.pdf) - This lab guides students to solder and test their PCB.
+[Robot PCB](Labs/0_robot_pcb/robot_pcb.pdf) - This lab guides students to solder and test their PCB.
 
 [Robot Build](labs/1robot_build/robot_build.pdf) - This lab provides instructions to assemble the robot.
 
