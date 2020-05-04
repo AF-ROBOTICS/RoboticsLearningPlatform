@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP TB6612_Motor_Driver
-D Adafruit TB6612 Motor Driver
-K motor-driver
-F ~
-$ENDCMP
-#
-#End Doc Library

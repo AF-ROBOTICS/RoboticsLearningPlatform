@@ -1,0 +1,191 @@
+\documentclass{handout}
+
+%\SetInstructor{Capt Steven Beyer}
+\SetCourseTitle{ECE210: Introduction to Electrical and Computer Engineering}
+\SetHandoutTitle{Robot Motors}
+
+%\ShowAllBlanks
+
+\usepackage[obeyspaces]{url}
+\input{../arduinoLanguage.tex}
+
+\graphicspath{{./figs/}}
+
+%\showsoln \setsolncolor{red}
+
+\lstset { %
+	language=Arduino,
+	frame=none,
+	basicstyle=\footnotesize,
+}
+
+\begin{document}
+	\maketitle
+	
+	\section{Objectives.} 
+	\begin{enumerate}
+		\item Understand the fundamentals of Pulse Width Modulation (PWM) including period, frequency, duty cycle, and pulse width.
+		\item Understand how PWM can be used to control the speed of motors.
+		\item Demonstrate understanding by manipulating the motors at different speeds.
+	\end{enumerate}
+	
+	\section{Pre-lab - To be done prior of class.}
+	\subsection{Reading:}
+	Adapted from \underline{Embedded Systems: Real-Time Interfacing to the MSP432 Microcontroller}, Jonathan W. Valvano, Third Edition, 2019.
+		
+	One effective way to deliver power to a DC motor in a variable manner is to use pulse width modulation (PWM). The basic idea of PWM is to create a \textbf{digital} output wave of fixed frequency, but allow the microctonroller to vary its duty cycle. The system is designed in such a way that \textbf{High+Low} is constant (meaning frequency/period is fixed). The \textbf{duty cycle} is defined as the fraction of time the signal is high:
+	
+	\[
+		duty\ cycle = \frac{High}{High + Low} = \frac{High}{Period}
+	\]
+	
+	Hence, duty cycle varies from 0 to 1 and will often be referred to as a percent. We interface this digital output wave to an external actuator (like a DC motor), such that power is applied to the motor when the signal is high, and no power is applied when the signal is low. We purposely select a frequency high enough so the DC motor does not start/stop with each individual pulse, but rather responds to the overall average value of the wave.
+	
+	\subsection{Key Terms:}
+	\begin{itemize}
+		\item \textbf{Pulse Width Modulation (PWM)}: A technique to deliver a variable signal (power) using an on/off signal with a variable percentage of time the signal is on (duty cycle).
+		\item \textbf{Period/Frequency}: Time required to complete one full cycle (on/off). Frequency is the inverse of period and is constant. The Arduino pins used by the robot operate at 980 Hz.
+		\item \textbf{Duty Cycle}: Percentage of time a digital signal is \textbf{on} over a period of time
+	\end{itemize}
+
+
+	
+	\begin{figure} [H]
+	\centering
+	\includegraphics[width=.5\textwidth]{Figure1.PNG}
+\end{figure}	
+	
+	\subsection{Examples:}
+	\begin{enumerate}
+		\item Pulsing an LED on and off.
+
+	\begin{minipage}{.4\textwidth}
+	You have already applied PWM to pulse the red LED using the Arduino. You varied the duty cycle through the use of the \mbox{\textit{analogWrite()}} function within the \textit{for-loop} which varied the power applied to the LED and consequently, the brightness. The code you used is to the right.
+	\end{minipage}\hfill
+	\begin{minipage}{.5\textwidth}
+	\begin{figure} [H]
+		\centering
+		\includegraphics[width=\textwidth]{Figure2.PNG}
+	\end{figure}
+\end{minipage}
+
+	\item Answer the following given the example shown below in Figure 1.
+\begin{enumerate}
+	\item What is the period of the signal?\soln{.2in}{100 ns}
+	\item What is the pulse width of the signal (how long is the signal \textbf{HIGH})?\soln{.2in}{25 ns}
+	\item What is the duty cycle?\soln{0in}{25\%}
+\end{enumerate}
+
+	\begin{figure} [H]
+	\centering
+	\includegraphics[width=.75\textwidth]{Figure3.PNG}
+	\caption{}
+\end{figure}
+
+	\item Given that the \textit{analogWrite(pin, value)} function's \textit{value} parameter is an integer that represents the duty cycle between 0 (always off) and 255 (always on), what would be the \textit{value} passed to provide a 75\% duty cycle to the motors?
+	
+	\soln{.25in}{$75\% of 255 = 191.25 = 191$}
+	
+		\end{enumerate}
+	\newpage
+	\clearpage
+	\pagebreak
+	
+	\subsection{Code:}
+	\begin{enumerate}
+		\item Copy the Arduino sketch folder \path{robot_motors} from \textbf{Teams} (\path{Labs/robot_motor})
+		\item Open the \path{robot_motors.ino} sketch.
+		\item In the \textit{loop()} function, update the five calls to \textit{Motor\_Forward()} to drive the motor at the designated duty cycles. 
+		\begin{itemize}
+			\item The example provided, \textit{Motor\_Forward(50, 50);}, will drive both the left and right motors at (50/255)\% of the duty cycle. This is equivalent to a duty cycle of about 20\%.
+		\end{itemize}
+		\item Upload the sketch to the robot. Both motors of the robot should now operate at 6 different speeds (from 20\% duty cycle up to 100\% and back down to 15\%).
+	\end{enumerate}
+	
+	\section{Lab.}
+	This lab will demonstrate how varying the PWM signal changes the average power delivered to the DC motors and, effectively, the speed of the motors.
+	
+	\subsection{Materials:}
+	
+	\begin{enumerate}
+		\item Assembled BeyerBot
+		\item Arduino programming cable
+		\item Laptop
+		\item Male-to-female/male Y-connector and male-to-male wire (provided for you in the Moku:Lab)
+	\end{enumerate}
+
+	\subsection{Connect the Moku:Lab probes:}
+	\begin{enumerate}
+		\item Disconnect \textbf{ONLY} the wire from \textit{Pin-5} on the Arduino.
+		\item Insert male end of the Y-connector into \textit{Pin-5}.
+		\item Connect the male end of the wire coming from your Printed Circuit Board (the one disconnected from \textit{Pin-5}) into the female end of the Y-connector.
+		\item Connect the positive (red) end of the Moku:Lab probe to \textit{Pin-5} on the Arduino using the Y-connector.
+		\item Insert a male-to-male wire into the \textit{GND-Pin} on the Arduino and connect the ground (black) end of the Moku:Lab probe to the other end of the wire.
+		\item Your setup should now look like Figure 2. All other wires should still be connected as they were previously.
+		\begin{figure} [H]
+			\centering
+			\includegraphics[width=.75\textwidth]{Figure4.PNG}
+			\caption{}
+		\end{figure}
+	\end{enumerate}
+	
+	\subsection{Measuring Pulse Width Modulation Signals:}
+	\begin{enumerate}
+		\item Place your robot on the Digital Multi Meter (DMM) (to allow the program to run without your robot driving away)
+		\item Your Moku:Lab display should look like Figure 3. If it does not, raise your hand.
+		\begin{figure} [H]
+			\centering
+			\includegraphics[width=.75\textwidth]{Figure5.PNG}
+			\caption{}
+		\end{figure}
+		\newpage
+	\clearpage
+	\pagebreak
+	
+		\item Open the measurements bar by pressing the ruler in the bottom right of your screen.
+		\begin{figure} [H]
+			\centering
+			\includegraphics[width=.75\textwidth]{Figure6.PNG}
+		\end{figure}
+
+		\item Add three measurement tools: Frequency, Period, and Pulse width. Press the ``plus" sign within the measurements toolbox to add a new tool. Select the tool to change it. Repeat this for each of the four tools.
+		\begin{figure} [H]
+			\centering
+			\includegraphics[width=.75\textwidth]{Figure7.PNG}
+		\end{figure}
+	\begin{figure} [H]
+		\centering
+		\includegraphics[width=.75\textwidth]{Figure8.PNG}
+	\end{figure}
+	\begin{figure} [H]
+	\centering
+	\includegraphics[width=.75\textwidth]{Figure9.PNG}
+\end{figure}
+\item Turn on your robot and run the previously uploaded code.
+\item What do you notice?
+
+	\newpage
+\clearpage
+\pagebreak
+
+
+\item Comment out all of the code within \textbf{\textit{loop()}} except for the portion that runs the motors at 75\% duty cycle (\textit{Motor\_Forward(191,191)}; \textit{delay(2000);}) and answer the following questions:
+\begin{enumerate}
+	\item What is the frequency of the signal? \soln{.3in}{980 Hz}
+	\item What is the period of the signal? \soln{.3in}{}
+	\item What is the pulse width of the signal (how long is the signal \textbf{HIGH})? \soln{.3in}{}
+	\item Using these values, calculate the duty cycle. \soln{.3in}{}
+	\item Is this duty cycle what you expected? \soln{.3in}{}
+	\item Add a Duty cycle measurement tool on the display (reference step 4.3-4). Does the value match what you calculated?\soln{.3in}{}
+	\item How does the speed of the motors correlate to the duty cycle? \soln{.3in}{}
+	
+\end{enumerate}
+	\end{enumerate}
+\section{Feedback.}
+\begin{enumerate}
+	\item Was there any part of the lab that was confusing or unclear? \soln{.3in}{}
+	\item Is there any aspect of PWM that you still find confusing or would like more clarification on? \soln{.3in}{}
+	\item What would you change from this lab for next semester? \soln{.3in}{}
+\end{enumerate}
+	
+\end{document}
