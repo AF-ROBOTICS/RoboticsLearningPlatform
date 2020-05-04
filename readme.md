@@ -6,27 +6,27 @@ The DFEC Robot was created for the Department of Electrical and Computer Enginee
 
 Six labs guide the students from soldering the PCB and assembling the robot to using distance and line sensors to guide the robot through a maze.
 
-[Robot PCB](labs/0_robot_pcb) - This lab guides students to solder and test their PCB.
+[Robot PCB](labs/0_robot_pcb/robot_pcb.pdf) - This lab guides students to solder and test their PCB.
 
-[Robot Build](labs/1robot_build) - This lab provides instructions to assemble the robot.
+[Robot Build](labs/1robot_build/robot_build.pdf) - This lab provides instructions to assemble the robot.
 
-[Robot Motors](labs/2_robot_motors) - This lab investigates how the Arduino uses Pulse Width Modulation to drive the robot's motors.
+[Robot Motors](labs/2_robot_motors/robot_motors.pdf) - This lab investigates how the Arduino uses Pulse Width Modulation to drive the robot's motors.
 
-[Robot Drive](labs/3_robot_drive) - This lab has students control the motors to drive in specified patterns.
+[Robot Drive](labs/3_robot_drive/robot_drive.pdf) - This lab has students control the motors to drive in specified patterns.
 
-[Robot Line Following](labs/4_robot_linefollowing) - This lab integrates the Pololu QTR-8RC Line Sensor Array to enable the robot to follow a black line.
+[Robot Line Following](labs/4_robot_linefollowing/robot_linefollowing.pdf) - This lab integrates the Pololu QTR-8RC Line Sensor Array to enable the robot to follow a black line.
 
-[Robot Wall Following](labs/5_robot_wallfollowing) - This lab integrates the Sharp GP2Y051SK0F 2-15 cm Analog Distance Sensor to enable the robot to follow walls.
+[Robot Wall Following](labs/5_robot_wallfollowing/robot_wallfollowing.pdf) - This lab integrates the Sharp GP2Y051SK0F 2-15 cm Analog Distance Sensor to enable the robot to follow walls.
 
-[Robot Maze](labs/6_robot_maze) - This lab is broken up into three parts: 1) follow a line through a maze; 2) follow a line through a maze and turn around and return to the start of the maze; and 3) navigate a walled maze towards a goal location.
+[Robot Maze](labs/6_robot_maze/robot_maze.pdf) - This lab is broken up into three parts: 1) follow a line through a maze; 2) follow a line through a maze and turn around and return to the start of the maze; and 3) navigate a walled maze towards a goal location.
 
 ## Libraries
 
-There are two custom libraries used to control the robot. These libraries should be copied into library folder at *root/Documents/Arduino/libraries*.
+There are two custom libraries used to control the robot. These libraries should be copied into library folder at `root/Documents/Arduino/libraries`.
 
-[Motor](Motor) - This library provides functions to drive the robot using left and right PWM values (e.g., *Motor_Init()*, *Motor_Forward(int leftDuty, int rightDuty)*, and *Motor_Stop()*)
+[Motor](labs/libraries/Motor/Motor.h) - This library provides functions to drive the robot using left and right PWM values (e.g., `Motor_Init()`, `Motor_Forward(int leftDuty, int rightDuty)`, and `Motor_Stop()`)
 
-[QTR-8RC](labs/libraries/QTR-8RC) - This library is adapted from the QTRSensors library to utilize the QTR-8RC Reflectance Sensor Array to determine how far the robot is off a line.
+[QTR-8RC](labs/libraries/QTR-8RC/QTR-8RC.h) - This library is adapted from the QTRSensors library to utilize the QTR-8RC Reflectance Sensor Array to determine how far the robot is off a line.
 
 ## Projects
 
@@ -34,7 +34,7 @@ There are several projects that incorporate the DFEC Robot into different system
 
 ## Hardware
 
-### [3D Printed Chassis](3D_Printing/stl)
+### 3D Printed Chassis
 
 Frame developed using [AutoDesk Fusion 360](https://www.autodesk.com/products/fusion-360/overview) and printed on a LulzBot Taz 6.
 
@@ -70,7 +70,7 @@ Frame developed using [AutoDesk Fusion 360](https://www.autodesk.com/products/fu
 
 
 
-### [Printed Circuit Board (PCB)](pcb)
+### Printed Circuit Board (PCB)
 
 |                                                   |                                               |
 | :-----------------------------------------------: | :-------------------------------------------: |
