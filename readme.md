@@ -38,13 +38,13 @@ There are several projects that incorporate the DFEC Robot into different system
 
 Frame developed using [AutoDesk Fusion 360](https://www.autodesk.com/products/fusion-360/overview) and printed on a LulzBot Taz 6.
 
-#### [Base layer](3D_Printing/stl/BaseLayer.stl)
+#### [Base layer](3D_Printing/stl/BaseLayer1.stl)
 
 |                          Top                           |                          Bottom                           |
 | :----------------------------------------------------: | :-------------------------------------------------------: |
 | <img src="pics/baselayertop.png" style="zoom: 67%;" /> | <img src="pics/baselayerbottom.png" style="zoom: 67%;" /> |
 
-#### [Motor layer](3D_Printing/stl/MotorLayer.stl)
+#### [Motor layer](3D_Printing/stl/MotorLayer1.stl)
 
 |                          Top                           |                          Bottom                           |
 | :----------------------------------------------------: | :-------------------------------------------------------: |
