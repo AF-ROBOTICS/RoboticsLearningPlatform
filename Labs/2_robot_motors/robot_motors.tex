@@ -21,6 +21,10 @@
 
 \begin{document}
 	\maketitle
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.75\textwidth]{Cover.PNG}
+	\end{figure}
 	
 	\section{Objectives.} 
 	\begin{enumerate}
@@ -68,7 +72,9 @@
 		\includegraphics[width=\textwidth]{Figure2.PNG}
 	\end{figure}
 \end{minipage}
-
+	\newpage
+\clearpage
+\pagebreak
 	\item Answer the following given the example shown below in Figure 1.
 \begin{enumerate}
 	\item What is the period of the signal?\soln{.2in}{100 ns}
@@ -87,9 +93,7 @@
 	\soln{.25in}{$75\% of 255 = 191.25 = 191$}
 	
 		\end{enumerate}
-	\newpage
-	\clearpage
-	\pagebreak
+
 	
 	\subsection{Code:}
 	\begin{enumerate}
@@ -128,7 +132,9 @@
 			\caption{}
 		\end{figure}
 	\end{enumerate}
-	
+			\newpage
+	\clearpage
+	\pagebreak
 	\subsection{Measuring Pulse Width Modulation Signals:}
 	\begin{enumerate}
 		\item Place your robot on the Digital Multi Meter (DMM) (to allow the program to run without your robot driving away)
@@ -138,9 +144,7 @@
 			\includegraphics[width=.75\textwidth]{Figure5.PNG}
 			\caption{}
 		\end{figure}
-		\newpage
-	\clearpage
-	\pagebreak
+
 	
 		\item Open the measurements bar by pressing the ruler in the bottom right of your screen.
 		\begin{figure} [H]
@@ -163,11 +167,6 @@
 \end{figure}
 \item Turn on your robot and run the previously uploaded code.
 \item What do you notice?
-
-	\newpage
-\clearpage
-\pagebreak
-
 
 \item Comment out all of the code within \textbf{\textit{loop()}} except for the portion that runs the motors at 75\% duty cycle (\textit{Motor\_Forward(191,191)}; \textit{delay(2000);}) and answer the following questions:
 \begin{enumerate}

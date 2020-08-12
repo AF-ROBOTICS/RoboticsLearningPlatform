@@ -12,6 +12,8 @@
 
 %\showsoln \setsolncolor{red}
 
+\graphicspath{{./figs/}}
+
 \lstset { %
 	language=Arduino,
 	frame=none,
@@ -21,6 +23,10 @@
 \begin{document}
 	%	\footnotetext{Examples are abstracted from Tutorials Point, "Arduino", 2019, accessed Feb 18, 2019. [Online]. Available: https://www.tutorialspoint.com/arduino/index.htm}
 	\maketitle
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{Cover.PNG}
+\end{figure}
 
 	\section{Objectives.} 
 	\begin{enumerate}
@@ -42,7 +48,11 @@
 	
 	
 	Use Notepad++ to open the \textit{Motor.h} file that you previously saved here:\\ \path{Documents/Arduino/libraries/Motor/Motor.h}. The \textit{.h} file is a header file used within the \textit{.ino}  Arduino sketch. Take a look at \path{Motor.h} first.
-	
+
+	\newpage
+\clearpage
+\pagebreak	
+
 	\subsubsection{Motor.h}
 	This file uses four pins on the Arduino to communicate with the TB6612FNG Motor Driver chip on your PCB board. These pins are used as follows:
 	
@@ -64,9 +74,7 @@
 	\subsubsection{robot\_drive.ino}
 	This is the main file to place drive code. This file is reliant on the \path{Motor.h} header file. The \path{robot\_drive.ino} file provides an example to move the robot forward, turn left, turn right, drive backwards, and then stop. This code will repeat continuously until the DFECBot is powered off (See below code). Delete this example code before submission.
 	
-	\newpage
-	\clearpage
-	\pagebreak
+
 	\begin{lstlisting}
 	/* 
 	*  Code to make the DFECBot go forward, turn left, turn right, go 
