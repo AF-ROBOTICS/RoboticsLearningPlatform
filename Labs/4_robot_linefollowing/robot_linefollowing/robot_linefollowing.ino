@@ -4,6 +4,15 @@
  *  Created: 23 April 2020
  *  Description: Example Arduino Sketch that prints 
  *    values from the DFECBot's QTR-8RC line sensor array.
+ *    
+ *    The setup phase of this example calibrates the sensors for ten seconds and
+ *    turns on the Arduino's LED (usually on pin 13) while calibration is going
+ *    on. During this phase, you should expose each reflectance sensor to the
+ *    lightest and darkest readings they will encounter. For example, if you are
+ *    making a line follower, you should slide the sensors across the line during
+ *    the calibration phase so that each sensor can get a reading of how dark the
+ *    line is and how light the ground is.  Improper calibration will result in
+ *    poor readings.
  *  
  *  Source: Adapted from QTRRCExample.ino and QTRSensors.h
  *    https://github.com/pololu/qtr-sensors-arduino
@@ -49,6 +58,7 @@ void setup()
 
   delay(500);
 
+  // During calibration 
   // 2.5 ms RC read timeout (default) * 10 reads per calibrate() call
   // = ~25 ms per calibrate() call.
   // Call calibrate() 400 times to make calibration take about 10 seconds.

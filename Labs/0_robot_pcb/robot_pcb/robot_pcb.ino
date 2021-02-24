@@ -18,7 +18,7 @@
 
 
 // set the speed of the robot to 25% Duty Cycle
-const int speed = 64;
+const int speed = 122;
 
 void setup(){
   // initialize robot instance setting pins and turn delay

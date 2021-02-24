@@ -1,4 +1,4 @@
-#include "QTRSensors.h"
+#include "QTR-8RC.h"
 #include <Arduino.h>
 
 void QTRSensors::setTypeRC()
