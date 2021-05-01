@@ -56,19 +56,19 @@ SharpDistSensor sensorL(irL, medianFilterWindowSize);
 #define OFFSET 50     // dist from IR sensor to center of robot in mm
 #define DESIRED 100   // desired dist from wall
 #define PWMNOMINAL 100
-#define SWING 20
+#define SWING 40
 #define PWMMIN (PWMNOMINAL-SWING)
 #define PWMMAX (PWMNOMINAL+SWING)
 
 // Proportional gain constant
-const int Kp = 3;
+const int Kp = 2;
 
 
 // choose between modes:
 //  0 - follow wall on right
 //  1 - follow wall on left
 //  2 - follow walls on both sides
-const int Mode = 0;
+int Mode;
 
 void setup() {
   // Initialize the motors
@@ -78,6 +78,8 @@ void setup() {
   sensorR.setModel(SharpDistSensor::GP2Y0A51SK0F_5V_DS);
   sensorC.setModel(SharpDistSensor::GP2Y0A51SK0F_5V_DS);
   sensorL.setModel(SharpDistSensor::GP2Y0A51SK0F_5V_DS);
+
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -88,6 +90,15 @@ void loop() {
   unsigned int distC = sensorC.getDist() + OFFSET;
   unsigned int distL = sensorL.getDist() + OFFSET;
 
+  if (distR < 125){
+    Mode = 0;
+  }
+  else if (distL <125){
+    Mode = 1;
+  }
+  else if (distL <125 && distR < 125){
+    Mode = 2;
+  }
   // follow wall on right
   if(Mode == 0){
     error = DESIRED - distR;

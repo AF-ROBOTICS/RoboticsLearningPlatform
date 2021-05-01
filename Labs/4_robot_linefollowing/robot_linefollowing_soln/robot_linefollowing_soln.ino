@@ -45,7 +45,7 @@ uint16_t sensorValues[SensorCount];
 #define PWMMAX (PWMNOMINAL+SWING)
 
 // Proportional gain constant
-const int Kp = 3;
+const float Kp = .5;
 
 void setup()
 {
